@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Verifiable Driver's License Vocabulary v0.1</title>
+    <meta http-equiv=" Content-Type" content="text/html;charset=utf-8">
+
+    <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
+    <script type="text/javascript" class="remove">
+      const respecPagesJson = {
+        name: "vdl-vocab",
+        status: "UNOFFICIAL",
+        latest: "https://w3c-ccg.github.io/vdl-vocab",
+        repository: "https://github.com/w3c-ccg/vdl-vocab",
+        issues: "https://github.com/w3c-ccg/vdl-vocab/issues",
+        group: {
+          name: "Credentials Community Group",
+          url: "https://www.w3.org/community/credentials/",
+          list: "public-credentials",
+          patentUri: "https://www.w3.org/community/about/agreements/cla/",
+        },
+        editors: [],
+        bibliography: {
+          "RDF-DATASET-NORMALIZATION": {
+            title: "RDF Dataset Normalization 1.0",
+            href: "http://json-ld.github.io/normalization/spec/",
+            authors: ["David Longley", "Manu Sporny"],
+            status: "CGDRAFT",
+            publisher: "JSON-LD Community Group",
+          },
+        },
+      };
+
+      var respecConfig = {
+        // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
+        specStatus: respecPagesJson.status,
+
+        // the specification's short name, as in http://www.w3.org/TR/short-name/
+        shortName: respecPagesJson.name,
+
+        // if there a publicly available Editor's Draft, this is the link
+        edDraftURI: respecPagesJson.latest,
+
+        // if this is a LCWD, uncomment and set the end of its review period
+        // lcEnd: "2009-08-05",
+
+        // if you want to have extra CSS, append them to this list
+        // it is recommended that the respec.css stylesheet be kept
+        //extraCSS:             ["spec.css", "prettify.css"],
+
+        // editors, add as many as you like
+        // only "name" is required
+        editors: respecPagesJson.editors,
+
+        // extend the bibliography entries
+        //localBiblio: webpayments.localBiblio,
+        // group: "w3c-ccg",
+        // wg: respecPagesJson.group.name,
+        // // URI of the public WG page
+        // wgURI: respecPagesJson.group.url,
+        // // name (with the @w3c.org) of the public mailing to which comments are due
+        // wgPublicList: respecPagesJson.group.list,
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        // wgPatentURI: respecPagesJson.group.patentUri,
+
+        otherLinks: [
+          {
+            key: "Source Control",
+            data: [
+              {
+                value: respecPagesJson.repository,
+                href: respecPagesJson.repository,
+              },
+            ],
+          },
+          {
+            key: "Issue Tracker",
+            data: [
+              {
+                value: respecPagesJson.issues,
+                href: respecPagesJson.issues,
+              },
+            ],
+          },
+        ],
+
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        // wgPatentURI:  "",
+        maxTocLevel: 2,
+        /*preProcess: [ webpayments.preProcess ],
+      alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
+      */
+        localBiblio: respecPagesJson.bibliography,
+      };
+    </script>
+    <script src="./common.js" class="remove"></script>
+  </head>
+  <body>
+    <section id="abstract">
+      <p>
+This specification describes <b>an experimental vocabulary</b> for expressing
+a Verifiable Driver's License, which is intended to be fully conformant with
+the ISO 18013 Mobile Driver's License data model.
+      </p>
+    </section>
+
+    <section id="sotd">
+This document is experimental.
+    </section>
+
+    <section class="informative">
+      <h2>Introduction</h2>
+      <p>
+This specification describes <b>an experimental vocabulary</b> for expressing
+a Verifiable Driver's License, which is intended to be fully conformant with
+the ISO 18013 Mobile Driver's License data model.
+      </p>
+
+      <section class="informative">
+        <h3>Use Cases and Requirements</h3>
+
+        <p>
+The following use cases outline a number of key scenarios that readers might
+find useful:
+        </p>
+
+        <ul>
+          <li></li>
+          <li></li>
+        </ul>
+      </section>
+
+      <section class="informative">
+        <h3>Example</h3>
+
+        <p>
+          The following examples are provided  ...
+        </p>
+
+        <pre class="example" title="A Vaccine Certificate expressed as a W3C Verifiable Credential featuring an Ed25519 Digital Signature">
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/vdl/v1"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "Iso18013DriversLicense"
+  ],
+  "issuer": "did:key:z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5",
+  "issuanceDate": "2018-01-15T10:00:00.0000000-07:00",
+  "expirationDate": "2022-08-27T12:00:00.0000000-06:00",
+  "credentialSubject": {
+    "id": "did:example:12347abcd",
+    "license": {
+      "type": "Iso18013DriversLicense",
+      "document_number": "542426814",
+      "family_name": "TURNER",
+      "given_name": "SUSAN",
+      "portrait": "/9j/4AAQSkZJRgABAQEAkACQA...gcdgck5HtRRSClooooP/2Q==,
+      "birth_date": "1998-08-28",
+      "issue_date": "2018-01-15T10:00:00.0000000-07:00",
+      "expiry_date": "2022-08-27T12:00:00.0000000-06:00",
+      "issuing_country": "US",
+      "issuing_authority": "CO",
+      "driving_privileges": [{
+        "codes": [{"code": "D"}],
+        "vehicle_category_code": "D",
+        "issue_date": "2019-01-01",
+        "expiry_date": "2027-01-01"
+      },
+      {
+        "codes": [{"code": "C"}],
+        "vehicle_category_code": "C",
+        "issue_date": "2019-01-01",
+        "expiry_date": "2017-01-01"
+      }],
+      "un_distinguishing_sign": "USA",
+    },
+  },
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "created": "2021-06-20T00:17:01Z",
+    "verificationMethod": "did:key:z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5
+      #z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z4zKSH1WmuSQ8tcpSB6mtaSGhtzvMnBQSckqrpTDm3wQyNfHd6rctuST2
+      cyzaKSY135Kp6ZYMyFaiLvBUjJ89GP7V"
+  }
+}
+        </pre>
+
+      </section>
+    </section>
+
+    <section class="informative">
+      <h2>Terminology</h2>
+
+      <div
+        data-include="./terms.html"
+        data-oninclude="restrictReferences"
+      ></div>
+    </section>
+
+    <section class="informative">
+      <h2>Concepts</h2>
+
+      <p>
+TBD
+      </p>
+
+    </section>
+
+    <section class="normative">
+      <h2>The Verifiable Driver's License Vocabulary</h2>
+
+      <p>
+This vocabulary assumes all terms specified in the base Verifiable Credentials
+[[VC-DATA-MODEL]] context. In addition, the following classes are available for
+specifying information related to ISO18013 data model compatible Driving
+Licenses.
+      </p>
+
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Identifier</th>
+            <th>Field Name</th>
+            <th>Field Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <td>family_name</td>
+          <td>Family name</td>
+          <td>Last name, surname, or primary identifier, of the licence holder.
+          </tr><tr>
+          <td>given_name</td>
+          <td>Given names</td>
+          <td>First name(s), other name(s), or secondary identifier, of the licence holder.
+          </tr><tr>
+          <td>birth_date</td>
+          <td>Date of birth</td>
+          <td>Day, month, year on which the licence holder was born. If unknown, approximate.
+          </tr><tr>
+          <td>issue_date</td>
+          <td>Date of Issue</td>
+          <td>Date licence document was issued.
+          </tr><tr>
+          <td>expiry_date</td>
+          <td>Date of Expiry</td>
+          <td>Date licence document expires.
+          </tr><tr>
+          <td>issuing_country</td>
+          <td>Issuing country</td>
+          <td>Country code as alpha 2 code, defined in ISO 3166-1, which issued the mDL or within which the licensing authority is located.
+          </tr><tr>
+          <td>issuing_authority</td>
+          <td>Issuing authority</td>
+          <td>Name of licensing authority, or issuing country if separate licensing authorities have not been authorized.
+          </tr><tr>
+          <td>document_number</td>
+          <td>Licence number</td>
+          <td>The number assigned or calculated by the issuing authority.
+          </tr><tr>
+          <td>administrative_number</td>
+          <td>Administrative number</td>
+          <td>An audit control number assigned by the licensing authority
+          </tr><tr>
+          <td>driving_privileges</td>
+          <td>Categories of vehicles/restrictions/conditions</td>
+          <td>Driving privileges the licence holder is authorized to drive. It consists of category issue date, expiry date, restriction/condition sign code, restriction/condition sign and restriction/condition value.
+          </tr><tr>
+          <td>un_distinguishing_sign</td>
+          <td>UN distinguishing sign</td>
+          <td>Distinguishing sign of the issuing country according to 18013-1 annex F NOTE this field is added for purposes of the UN conventions on driving licences.
+          </tr><tr>
+          <td>gender</td>
+          <td>Gender</td>
+          <td>Licence holder’s gender: M for male, F for female, X for not specified
+          </tr><tr>
+          <td>height</td>
+          <td>Height (cm)</td>
+          <td>A Licence holder’s height in centimetres.
+          </tr><tr>
+          <td>weight</td>
+          <td>Weight (kg)</td>
+          <td>A Licence holder’s weight in kilograms O F3N uint
+          </tr><tr>
+          <td>eye_color</td>
+          <td>Eye colour</td>
+          <td>Licence holder’s eye colour: blue, brown, black, hazel, green, grey, pink, dichromatic.
+          </tr><tr>
+          <td>hair_color</td>
+          <td>Hair colour</td>
+          <td>Licence holder’s hair colour: brown, black, blonde, grey, red, auburn, sandy, white, bald.
+          </tr><tr>
+          <td>birth_place</td>
+          <td>Place of birth</td>
+          <td>Country and municipality or state/province where the licence holder was born.
+          </tr><tr>
+          <td>resident_address</td>
+          <td>Permanent place of residence</td>
+          <td>The place where the licence holder resides and/or may be contacted (street/house number, municipality etc.)
+          </tr><tr>
+          <td>portrait</td>
+          <td>Portrait of mDL Holder</td>
+          <td>A reproduction of the licence holder’s portrait.
+          </tr><tr>
+          <td>portrait_capture_date</td>
+          <td>Portrait image timestamp</td>
+          <td>Date when picture was taken.
+          </tr><tr>
+          <td>age_in_years</td>
+          <td>Age attestation: How old are you (in years)?</td>
+          <td>The age of the mDL Holder.
+          </tr><tr>
+          <td>age_birth_year</td>
+          <td>Age attestation: In what year were you born?</td>
+          <td>The year when the mDL Holder was born.
+          </tr><tr>
+          <td>issuing_jurisdiction</td>
+          <td>Issuing jurisdiction</td>
+          <td>Country subdivision code as defined in clause 8, ISO 3166-2. The first part of the code shall be the same as the value for issuing_country. This element is intended to be used in cases where the issuing jurisdiction is different from the issuing authority.
+          </tr><tr>
+          <td>nationality</td>
+          <td>Nationality</td>
+          <td>Nationality of the mDL Holder as two letter country code (alpha-2 code) defined in ISO 3166-1.
+          </tr><tr>
+          <td>resident_city</td>
+          <td>Resident city</td>
+          <td>The city where the mDL Holder lives.
+          </tr><tr>
+          <td>resident_state</td>
+          <td>Resident state/province/district</td>
+          <td>The state/province/district where the mDL Holder lives.
+          </tr><tr>
+          <td>resident_postal_code</td>
+          <td>Resident postal code</td>
+          <td>The postal code of the mDL Holder.
+          </tr><tr>
+          <td>name_national_character</td>
+          <td>Full name of holder in full UTF-8 character set</td>
+          <td>The full name of the mDL Holder in his/her national characters.
+          </tr><tr>
+          <td>signature_usual_mark</td>
+          <td>Signature / usual mark</td>
+          <td>Image of the signature or usual mark of the mDL Holder.
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="informative">
+      <h2>Privacy Considerations</h2>
+
+      <p>
+        This section details the general privacy considerations and specific
+        privacy implications of deploying this specification into production
+        environments.
+      </p>
+    </section>
+
+    <section class="informative">
+      <h2>Security Considerations</h2>
+
+      <p>
+        There are a number of security considerations that implementers should
+        be aware of when processing data described by this specification.
+        Ignoring or not understanding the implications of this section can
+        result in security vulnerabilities.
+      </p>
+
+      <p>
+        While this section attempts to highlight a broad set of security
+        considerations, it is not a complete list. Implementers are urged to
+        seek the advice of security and cryptography professionals when
+        implementing mission critical systems using the technology outlined in
+        this specification.
+      </p>
+    </section>
+
+    <section class="informative">
+      <h2>Accessibility Considerations</h2>
+
+      <p>
+        There are a number of accessibility considerations implementers should
+        be aware of when processing data described in this specification. As
+        with any web standards or protocols implementation, ignoring
+        accessibility issues makes this information unusable to a large subset
+        of the population. It is important to follow accessibility guidelines
+        and standards, such as [[WCAG21]], to ensure all people, regardless of
+        ability, can make use of this data. This is especially important when
+        establishing systems utilizing cryptography, which have historically
+        created problems for assistive technologies.
+      </p>
+
+      <p>
+        This section details the general accessibility considerations to take
+        into account when utilizing this data model.
+      </p>
+    </section>
+
+    <section class="informative">
+      <h2>Internationalization Considerations</h2>
+
+      <p>
+        There are a number of internationalization considerations implementers
+        should be aware of when publishing data described in this specification.
+        As with any web standards or protocols implementation, ignoring
+        internationalization makes it difficult for data to be produced and
+        consumed across a disparate set of languages and societies, which would
+        limit the applicability of the specification and significantly diminish
+        its value as a standard.
+      </p>
+
+      <p>
+        This section outlines general internationalization considerations to
+        take into account when utilizing this data model.
+      </p>
+    </section>
+  </body>
+</html>
