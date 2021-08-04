@@ -1,0 +1,17 @@
+*.sw[nop]
+*.py[co]
+*~
+*.log
+.DS_Store
+.project
+.settings
+.who-data/
+results/
+reports/
+mochawesome-report/
+TAGS
+config.json
+node_modules/
+package-lock.json
+*.vswp
+config.json
