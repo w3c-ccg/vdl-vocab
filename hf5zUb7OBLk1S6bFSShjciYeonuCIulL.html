@@ -201,6 +201,71 @@ find useful:
     </section>
 
     <section class="informative">
+      <h3>Alternative Data Model Expression</h3>
+
+      <p>
+        The ISO 18013 Mobile Driver's License data model and W3C Verifiable Credentials data model during design had different requirements, meaning the
+        optimal way to model a drivers license within each standard is different. The above model is aimed to preserve the ISO 18013 Mobile Driver's License data model
+        when expressed as a W3C Verifiable Credential, whereas the below expresses the same information conveyed in a ISO 18013 Mobile Driver's License, however
+        modelled in a way that is in keeping with the W3C Verifiable Credentials standard.
+      </p>
+
+      <pre class="example" title="A Vaccine Certificate expressed as a W3C Verifiable Credential featuring an Ed25519 Digital Signature">
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/vdl/v1"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "Iso18013DriversLicense"
+  ],
+  "issuer": "did:key:z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5",
+  "issuanceDate": "2018-01-15T10:00:00.0000000-07:00",
+  "expirationDate": "2022-08-27T12:00:00.0000000-06:00",
+  "credentialSubject": {
+    "id": "did:example:12347abcd",
+    "familyName": "TURNER",
+    "givenName": "SUSAN",
+    "portrait": "/9j/4AAQSkZJRgABAQEAkACQA...gcdgck5HtRRSClooooP/2Q==,
+    "birthDate": "1998-08-28",
+    "licenseDetails": {
+      "type": "Iso18013DriversLicense",
+      "documentNumber": "542426814",
+      "issuingCountry": "US",
+      "issuingAuthority": "CO",
+      "drivingPrivileges": [
+        {
+          "codes": [{"code": "D"}],
+          "vehicleCategoryCode": "D",
+          "issueDate": "2019-01-01",
+          "expiryDate": "2027-01-01"
+        },
+        {
+          "codes": [{"code": "C"}],
+          "vehicleCategoryCode": "C",
+          "issueDate": "2019-01-01",
+          "expiryDate": "2017-01-01"
+        }],
+      "unDistinguishingSign": "USA",
+    },
+  },
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "created": "2021-06-20T00:17:01Z",
+    "verificationMethod": "did:key:z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5
+      #z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z4zKSH1WmuSQ8tcpSB6mtaSGhtzvMnBQSckqrpTDm3wQyNfHd6rctuST2
+      cyzaKSY135Kp6ZYMyFaiLvBUjJ89GP7V"
+  }
+}
+      </pre>
+
+    </section>
+  </section>
+
+    <section class="informative">
       <h2>Terminology</h2>
 
       <div
