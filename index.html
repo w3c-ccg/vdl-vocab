@@ -8,10 +8,8 @@
     <script type="text/javascript" class="remove">
       const respecPagesJson = {
         name: "vdl-vocab",
-        status: "UNOFFICIAL",
-        latest: "https://w3c-ccg.github.io/vdl-vocab",
-        repository: "https://github.com/w3c-ccg/vdl-vocab",
-        issues: "https://github.com/w3c-ccg/vdl-vocab/issues",
+        status: "unofficial",
+        github: "digitalbazaar/vdl-vocab",
         group: {
           name: "Credentials Community Group",
           url: "https://www.w3.org/community/credentials/",
@@ -32,13 +30,13 @@
 
       var respecConfig = {
         // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
-        specStatus: respecPagesJson.status,
+        specStatus: "unofficial",
 
         // the specification's short name, as in http://www.w3.org/TR/short-name/
-        shortName: respecPagesJson.name,
+        shortName: "vdl-vocab",
 
         // if there a publicly available Editor's Draft, this is the link
-        edDraftURI: respecPagesJson.latest,
+        edDraftURI: "https://w3id.org/vdl",
 
         // if this is a LCWD, uncomment and set the end of its review period
         // lcEnd: "2009-08-05",
@@ -49,7 +47,13 @@
 
         // editors, add as many as you like
         // only "name" is required
-        editors: respecPagesJson.editors,
+        editors: [{
+          name: "Manu Sporny", url: "https://www.linkedin.com/in/manusporny/",
+          company: "Digital Bazaar", companyURL: "http://digitalbazaar.com/"
+        }, {
+          name: "Tobias Looker", url: "https://www.linkedin.com/in/tplooker/",
+          company: "MATTR", companyURL: "https://mattr.global/"
+        }],
 
         // extend the bibliography entries
         //localBiblio: webpayments.localBiblio,
@@ -66,26 +70,6 @@
         // Team Contact.
         // wgPatentURI: respecPagesJson.group.patentUri,
 
-        otherLinks: [
-          {
-            key: "Source Control",
-            data: [
-              {
-                value: respecPagesJson.repository,
-                href: respecPagesJson.repository,
-              },
-            ],
-          },
-          {
-            key: "Issue Tracker",
-            data: [
-              {
-                value: respecPagesJson.issues,
-                href: respecPagesJson.issues,
-              },
-            ],
-          },
-        ],
 
         // URI of the patent status for this WG, for Rec-track documents
         // !!!! IMPORTANT !!!!
@@ -132,8 +116,18 @@ find useful:
         </p>
 
         <ul>
-          <li></li>
-          <li></li>
+          <li>
+Expressing driving privileges on the Web.
+          </li>
+          <li>
+Serializing driving privileges in an optical carrier (e.g., QR Code).
+          </li>
+          <li>
+Selectively disclosing driving privileges.
+          </li>
+          <li>
+Compatability with the W3C Verifiable Credentials data model.
+          </li>
         </ul>
       </section>
 
@@ -144,7 +138,7 @@ find useful:
           The following examples are provided  ...
         </p>
 
-        <pre class="example" title="A Vaccine Certificate expressed as a W3C Verifiable Credential featuring an Ed25519 Digital Signature">
+        <pre class="example" title="A ISO18013-5 mDL expressed as a W3C Verifiable Credential featuring an Ed25519 Digital Signature">
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
@@ -204,13 +198,13 @@ find useful:
       <h3>Alternative Data Model Expression</h3>
 
       <p>
-        The ISO 18013 Mobile Driver's License data model and W3C Verifiable Credentials data model during design had different requirements, meaning the
-        optimal way to model a drivers license within each standard is different. The above model is aimed to preserve the ISO 18013 Mobile Driver's License data model
-        when expressed as a W3C Verifiable Credential, whereas the below expresses the same information conveyed in a ISO 18013 Mobile Driver's License, however
-        modelled in a way that is in keeping with the W3C Verifiable Credentials standard.
+The ISO 18013 Mobile Driver's License data model and W3C Verifiable Credentials data model during design had different requirements, meaning the
+optimal way to model a drivers license within each standard is different. The above model is aimed to preserve the ISO 18013 Mobile Driver's License data model
+when expressed as a W3C Verifiable Credential, whereas the below expresses the same information conveyed in a ISO 18013 Mobile Driver's License, however
+modelled in a way that is in keeping with the W3C Verifiable Credentials standard.
       </p>
 
-      <pre class="example" title="A Vaccine Certificate expressed as a W3C Verifiable Credential featuring an Ed25519 Digital Signature">
+      <pre class="example" title="A ISO18013-5 mDL expressed as a W3C Verifiable Credential featuring an Ed25519 Digital Signature">
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
@@ -270,7 +264,6 @@ find useful:
 
       <div
         data-include="./terms.html"
-        data-oninclude="restrictReferences"
       ></div>
     </section>
 
@@ -427,9 +420,9 @@ Licenses.
       <h2>Privacy Considerations</h2>
 
       <p>
-        This section details the general privacy considerations and specific
-        privacy implications of deploying this specification into production
-        environments.
+This section details the general privacy considerations and specific
+privacy implications of deploying this specification into production
+environments.
       </p>
     </section>
 
@@ -437,18 +430,18 @@ Licenses.
       <h2>Security Considerations</h2>
 
       <p>
-        There are a number of security considerations that implementers should
-        be aware of when processing data described by this specification.
-        Ignoring or not understanding the implications of this section can
-        result in security vulnerabilities.
+There are a number of security considerations that implementers should
+be aware of when processing data described by this specification.
+Ignoring or not understanding the implications of this section can
+result in security vulnerabilities.
       </p>
 
       <p>
-        While this section attempts to highlight a broad set of security
-        considerations, it is not a complete list. Implementers are urged to
-        seek the advice of security and cryptography professionals when
-        implementing mission critical systems using the technology outlined in
-        this specification.
+While this section attempts to highlight a broad set of security
+considerations, it is not a complete list. Implementers are urged to
+seek the advice of security and cryptography professionals when
+implementing mission critical systems using the technology outlined in
+this specification.
       </p>
     </section>
 
@@ -456,20 +449,20 @@ Licenses.
       <h2>Accessibility Considerations</h2>
 
       <p>
-        There are a number of accessibility considerations implementers should
-        be aware of when processing data described in this specification. As
-        with any web standards or protocols implementation, ignoring
-        accessibility issues makes this information unusable to a large subset
-        of the population. It is important to follow accessibility guidelines
-        and standards, such as [[WCAG21]], to ensure all people, regardless of
-        ability, can make use of this data. This is especially important when
-        establishing systems utilizing cryptography, which have historically
-        created problems for assistive technologies.
+There are a number of accessibility considerations implementers should
+be aware of when processing data described in this specification. As
+with any web standards or protocols implementation, ignoring
+accessibility issues makes this information unusable to a large subset
+of the population. It is important to follow accessibility guidelines
+and standards, such as [[WCAG21]], to ensure all people, regardless of
+ability, can make use of this data. This is especially important when
+establishing systems utilizing cryptography, which have historically
+created problems for assistive technologies.
       </p>
 
       <p>
-        This section details the general accessibility considerations to take
-        into account when utilizing this data model.
+This section details the general accessibility considerations to take
+into account when utilizing this data model.
       </p>
     </section>
 
@@ -477,18 +470,18 @@ Licenses.
       <h2>Internationalization Considerations</h2>
 
       <p>
-        There are a number of internationalization considerations implementers
-        should be aware of when publishing data described in this specification.
-        As with any web standards or protocols implementation, ignoring
-        internationalization makes it difficult for data to be produced and
-        consumed across a disparate set of languages and societies, which would
-        limit the applicability of the specification and significantly diminish
-        its value as a standard.
+There are a number of internationalization considerations implementers
+should be aware of when publishing data described in this specification.
+As with any web standards or protocols implementation, ignoring
+internationalization makes it difficult for data to be produced and
+consumed across a disparate set of languages and societies, which would
+limit the applicability of the specification and significantly diminish
+its value as a standard.
       </p>
 
       <p>
-        This section outlines general internationalization considerations to
-        take into account when utilizing this data model.
+This section outlines general internationalization considerations to
+take into account when utilizing this data model.
       </p>
     </section>
   </body>
