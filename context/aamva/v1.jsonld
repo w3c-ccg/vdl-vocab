@@ -1,0 +1,57 @@
+{
+  "@context": {
+    "@protected": true,
+    "org.iso.18013.5.1.aamva": {
+      "@id": "https://w3id.org/vdl/org.iso.18013.5.1.aamva",
+      "@context": {
+        "@protected": true,
+        "aka_family_name_v2": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#akaFamilyNameV2",
+        "aka_given_name_v2": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#akaGivenNameV2",
+        "aka_suffix": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#akaSuffix",
+        "cdl_indicator": {
+          "@id": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#cdlIndicator",
+          "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
+        },
+        "dhs_compliance": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#dhsCompliance",
+        "dhs_compliance_text": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#dhsCompliance_text",
+        "dhs_temporary_lawful_status": {
+          "@id": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#dhsTemporaryLawfulStatus",
+          "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
+        },
+        "domestic_driving_privileges": {
+          "@id": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#domesticDrivingPrivileges",
+          "@type": "@json"
+        },
+        "edl_credential": {
+          "@id": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#edlCredential",
+          "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
+        },
+        "family_name_truncation": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#familyNameTruncation",
+        "given_name_truncation": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#givenNameTruncation",
+        "hazmat_endorsement_expiration_date": {
+          "@id": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#hazmatEndorsementExpirationDate",
+          "@type": "https://www.rfc-editor.org/rfc/rfc3339#full-date"
+        },
+        "name_suffix": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#nameSuffix",
+        "organ_donor": {
+          "@id": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#organDonor",
+          "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
+        },
+        "race_ethnicity": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#raceEthnicity",
+        "resident_county": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#residentCounty",
+        "sex": {
+          "@id": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#sex",
+          "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
+        },
+        "veteran": {
+          "@id": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#veteran",
+          "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
+        },
+        "weight_range": {
+          "@id": "https://w3id.org/vdl/org.iso.18013.5.1.aamva#weightRange",
+          "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
+        }
+      }
+    }
+  }
+}

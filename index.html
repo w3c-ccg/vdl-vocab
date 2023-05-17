@@ -142,7 +142,8 @@ Compatability with the W3C Verifiable Credentials data model.
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "https://w3id.org/vdl/v1"
+    "https://w3id.org/vdl/v1",
+    "https://w3id.org/vdl/aamva/v1"
   ],
   "type": [
     "VerifiableCredential",
@@ -153,30 +154,38 @@ Compatability with the W3C Verifiable Credentials data model.
   "expirationDate": "2022-08-27T12:00:00.0000000-06:00",
   "credentialSubject": {
     "id": "did:example:12347abcd",
-    "license": {
+    "driversLicense": {
       "type": "Iso18013DriversLicense",
-      "document_number": "542426814",
-      "family_name": "TURNER",
-      "given_name": "SUSAN",
-      "portrait": "/9j/4AAQSkZJRgABAQEAkACQA...gcdgck5HtRRSClooooP/2Q==",
-      "birth_date": "1998-08-28",
-      "issue_date": "2018-01-15T10:00:00.0000000-07:00",
-      "expiry_date": "2022-08-27T12:00:00.0000000-06:00",
-      "issuing_country": "US",
-      "issuing_authority": "CO",
-      "driving_privileges": [{
-        "codes": [{"code": "D"}],
-        "vehicle_category_code": "D",
-        "issue_date": "2019-01-01",
-        "expiry_date": "2027-01-01"
+      "org.iso.18013.5.1": {
+        "document_number": "542426814",
+        "family_name": "TURNER",
+        "given_name": "SUSAN",
+        "portrait": "/9j/4AAQSkZJRgABAQEAkACQA...gcdgck5HtRRSClooooP/2Q==",
+        "birth_date": "1998-08-28",
+        "issue_date": "2018-01-15T10:00:00.0000000-07:00",
+        "expiry_date": "2022-08-27T12:00:00.0000000-06:00",
+        "issuing_country": "US",
+        "issuing_authority": "CO",
+        "driving_privileges": [{
+          "codes": [{"code": "D"}],
+          "vehicle_category_code": "D",
+          "issue_date": "2019-01-01",
+          "expiry_date": "2027-01-01"
+        },
+        {
+          "codes": [{"code": "C"}],
+          "vehicle_category_code": "C",
+          "issue_date": "2019-01-01",
+          "expiry_date": "2017-01-01"
+        }],
+        "un_distinguishing_sign": "USA",
       },
-      {
-        "codes": [{"code": "C"}],
-        "vehicle_category_code": "C",
-        "issue_date": "2019-01-01",
-        "expiry_date": "2017-01-01"
-      }],
-      "un_distinguishing_sign": "USA",
+      "org.iso.18013.5.1.aamva": {
+        "aka_suffix": "1ST",
+        "sex": 2,
+        "family_name_truncation": "N",
+        "given_name_truncation": "N"
+      }
     },
   },
   "proof": {
@@ -277,7 +286,7 @@ TBD
     </section>
 
     <section class="normative">
-      <h2>The Verifiable Driver's License Vocabulary</h2>
+      <h2>The Verifiable Driver's License Core Vocabulary</h2>
 
       <p>
 This vocabulary assumes all terms specified in the base Verifiable Credentials
@@ -286,131 +295,328 @@ specifying information related to ISO18013 data model compatible Driving
 Licenses.
       </p>
 
+      <p>
+        All the terms below are defined under the
+        <code>org.iso.18013.5.1</code> namespace term.
+      </p>
+
       <table class="simple">
         <thead>
           <tr>
             <th>Identifier</th>
             <th>Field Name</th>
             <th>Field Description</th>
+            <th>Data Type</th>
           </tr>
         </thead>
         <tbody>
           <tr>
           <td>family_name</td>
           <td>Family name</td>
-          <td>Last name, surname, or primary identifier, of the licence holder.
+          <td>Last name, surname, or primary identifier, of the licence holder.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>given_name</td>
           <td>Given names</td>
-          <td>First name(s), other name(s), or secondary identifier, of the licence holder.
+          <td>First name(s), other name(s), or secondary identifier, of the licence holder.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>birth_date</td>
           <td>Date of birth</td>
-          <td>Day, month, year on which the licence holder was born. If unknown, approximate.
+          <td>Day, month, year on which the licence holder was born. If unknown, approximate.</td>
+          <td><a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC3339 full-date</a></td>
           </tr><tr>
           <td>issue_date</td>
           <td>Date of Issue</td>
-          <td>Date licence document was issued.
+          <td>Date licence document was issued.</td>
+          <td><a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC3339 date-time</a> or <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC3339 full-date</a></td>
           </tr><tr>
           <td>expiry_date</td>
           <td>Date of Expiry</td>
-          <td>Date licence document expires.
+          <td>Date licence document expires.</td>
+          <td><a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC3339 date-time</a> or <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC3339 full-date</a></td>
           </tr><tr>
           <td>issuing_country</td>
           <td>Issuing country</td>
-          <td>Country code as alpha 2 code, defined in ISO 3166-1, which issued the mDL or within which the licensing authority is located.
+          <td>Country code as alpha 2 code, defined in ISO 3166-1, which issued the mDL or within which the licensing authority is located.</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>issuing_authority</td>
           <td>Issuing authority</td>
-          <td>Name of licensing authority, or issuing country if separate licensing authorities have not been authorized.
+          <td>Name of licensing authority, or issuing country if separate licensing authorities have not been authorized.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>document_number</td>
           <td>Licence number</td>
-          <td>The number assigned or calculated by the issuing authority.
+          <td>The number assigned or calculated by the issuing authority.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>administrative_number</td>
           <td>Administrative number</td>
-          <td>An audit control number assigned by the licensing authority
+          <td>An audit control number assigned by the licensing authority</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>driving_privileges</td>
           <td>Categories of vehicles/restrictions/conditions</td>
-          <td>Driving privileges the licence holder is authorized to drive. It consists of category issue date, expiry date, restriction/condition sign code, restriction/condition sign and restriction/condition value.
+          <td>Driving privileges the licence holder is authorized to drive. It consists of category issue date, expiry date, restriction/condition sign code, restriction/condition sign and restriction/condition value.</td>
+          <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON">JSON</a></td>
           </tr><tr>
           <td>un_distinguishing_sign</td>
           <td>UN distinguishing sign</td>
-          <td>Distinguishing sign of the issuing country according to 18013-1 annex F NOTE this field is added for purposes of the UN conventions on driving licences.
+          <td>Distinguishing sign of the issuing country according to 18013-1 annex F NOTE this field is added for purposes of the UN conventions on driving licences.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
-          <td>gender</td>
-          <td>Gender</td>
-          <td>Licence holder’s gender: M for male, F for female, X for not specified
+          <td>sex</td>
+          <td>Sex</td>
+          <td>Licence holder’s sex using values as defined in ISO/IEC 5218.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32 bits unsigned integer number</a></td>
           </tr><tr>
           <td>height</td>
           <td>Height (cm)</td>
-          <td>A Licence holder’s height in centimetres.
+          <td>A Licence holder’s height in centimetres.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32 bits unsigned integer number</a></td>
           </tr><tr>
           <td>weight</td>
           <td>Weight (kg)</td>
-          <td>A Licence holder’s weight in kilograms O F3N uint
+          <td>A Licence holder’s weight in kilograms O F3N uint.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32 bits unsigned integer number</a></td>
           </tr><tr>
-          <td>eye_color</td>
+          <td>eye_colour</td>
           <td>Eye colour</td>
-          <td>Licence holder’s eye colour: blue, brown, black, hazel, green, grey, pink, dichromatic.
+          <td>Licence holder’s eye colour: black, blue, brown, dichromatic, grey, green, hazel, maroon, pink or unknown.
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
-          <td>hair_color</td>
+          <td>hair_colour</td>
           <td>Hair colour</td>
-          <td>Licence holder’s hair colour: brown, black, blonde, grey, red, auburn, sandy, white, bald.
+          <td>Licence holder’s hair colour: bald, black, blond, brown, grey, red, auburn, sandy, white or unknown.
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>birth_place</td>
           <td>Place of birth</td>
-          <td>Country and municipality or state/province where the licence holder was born.
+          <td>Country and municipality or state/province where the licence holder was born.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>resident_address</td>
           <td>Permanent place of residence</td>
-          <td>The place where the licence holder resides and/or may be contacted (street/house number, municipality etc.)
+          <td>The place where the licence holder resides and/or may be contacted (street/house number, municipality etc.)</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>portrait</td>
           <td>Portrait of mDL Holder</td>
-          <td>A reproduction of the licence holder’s portrait.
+          <td>A reproduction of the licence holder’s portrait.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#base64Binary">Base 64</a></td>
           </tr><tr>
           <td>portrait_capture_date</td>
           <td>Portrait image timestamp</td>
-          <td>Date when picture was taken.
+          <td>Date when picture was taken.</td>
+          <td><a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC3339 date-time</a></td>
           </tr><tr>
           <td>age_in_years</td>
           <td>Age attestation: How old are you (in years)?</td>
-          <td>The age of the mDL Holder.
+          <td>The age of the mDL Holder.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32 bits unsigned integer number</a></td>
+          </tr><tr>
+          <td>age_over_18</td>
+          <td>Age attestation: Nearest “true” attestation above 18.</td>
+          <td>Is the holder over 18.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#boolean">Boolean</a></td>
+          </tr><tr>
+          <td>age_over_21</td>
+          <td>Age attestation: Nearest “true” attestation above 21.</td>
+          <td>Is the holder over 21.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#boolean">Boolean</a></td>
+          </tr><tr>
+          <td>age_over_25</td>
+          <td>Age attestation: Nearest “true” attestation above 25.</td>
+          <td>Is the holder over 25.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#boolean">Boolean</a></td>
+          </tr><tr>
+          <td>age_over_62</td>
+          <td>Age attestation: Nearest “true” attestation above 62.</td>
+          <td>Is the holder over 62.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#boolean">Boolean</a></td>
+          </tr><tr>
+          <td>age_over_65</td>
+          <td>Age attestation: Nearest “true” attestation above 65.</td>
+          <td>Is the holder over 65.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#boolean">Boolean</a></td>
           </tr><tr>
           <td>age_birth_year</td>
           <td>Age attestation: In what year were you born?</td>
-          <td>The year when the mDL Holder was born.
+          <td>The year when the mDL Holder was born.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32 bits unsigned integer number</a></td>
           </tr><tr>
           <td>issuing_jurisdiction</td>
           <td>Issuing jurisdiction</td>
-          <td>Country subdivision code as defined in clause 8, ISO 3166-2. The first part of the code shall be the same as the value for issuing_country. This element is intended to be used in cases where the issuing jurisdiction is different from the issuing authority.
+          <td>Country subdivision code as defined in clause 8, ISO 3166-2. The first part of the code shall be the same as the value for issuing_country. This element is intended to be used in cases where the issuing jurisdiction is different from the issuing authority.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>nationality</td>
           <td>Nationality</td>
           <td>Nationality of the mDL Holder as two letter country code (alpha-2 code) defined in ISO 3166-1.
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>resident_city</td>
           <td>Resident city</td>
-          <td>The city where the mDL Holder lives.
+          <td>The city where the mDL Holder lives.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
+          </tr><tr>
+          <td>resident_country</td>
+          <td>Resident country</td>
+          <td>The country where the mDL Holder lives.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>resident_state</td>
           <td>Resident state/province/district</td>
-          <td>The state/province/district where the mDL Holder lives.
+          <td>The state/province/district where the mDL Holder lives.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>resident_postal_code</td>
           <td>Resident postal code</td>
-          <td>The postal code of the mDL Holder.
+          <td>The postal code of the mDL Holder.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
-          <td>name_national_character</td>
-          <td>Full name of holder in full UTF-8 character set</td>
-          <td>The full name of the mDL Holder in his/her national characters.
+          <td>family_name_national_character</td>
+          <td>Family name of holder in full UTF-8 character set</td>
+          <td>The family name of the mDL Holder in his/her national characters.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
+          </tr><tr>
+          <td>given_name_national_character</td>
+          <td>Given name of holder in full UTF-8 character set</td>
+          <td>The given name of the mDL Holder in his/her national characters.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
           </tr><tr>
           <td>signature_usual_mark</td>
           <td>Signature / usual mark</td>
-          <td>Image of the signature or usual mark of the mDL Holder.
+          <td>Image of the signature or usual mark of the mDL Holder.</td>
+          <td><a href="http://www.w3.org/2001/XMLSchema#base64Binary">Base 64</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="normative">
+      <h2>The Verifiable Driver's License AAMVA Vocabulary</h2>
+
+      <p>
+This vocabulary extends the Verifiable Driver's License Core Vocabulary with
+terms for all data elements defined by the mDL Implementation Guidelines issued
+by the American Association of Motor Vehicle Administrators (AAMVA). It can be
+imported as a JSON-LD context behind the URL
+<a href="https://w3id.org/vdl/aamva/v1">https://w3id.org/vdl/aamva/v1</a>, where
+vocabulary terms are grouped under the <code>org.iso.18013.5.1.aamva</code>
+namespace term.
+      </p>
+
+      <p>
+        
+      </p>
+
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Identifier</th>
+            <th>Field Name</th>
+            <th>Field Description</th>
+            <th>Data Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>aka_family_name_v2</td>
+            <td>Alias / AKA family name</td>
+            <td>Other family name by which credential holder is known.</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a> (latin1, 150 characters maximum)</td>
+          </tr><tr>
+            <td>aka_given_name_v2</td>
+            <td>Alias / AKA given name</td>
+            <td>Other given name by which credential holder is known.</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a> (latin1, 150 characters maximum)</td>
+          </tr><tr>
+            <td>aka_suffix</td>
+            <td>Alias / AKA Suffix name</td>
+            <td>Other suffix by which credential holder is known. Allowed values are <code>JR</code>, <code>SR</code>, <code>1ST</code>, <code>I</code>, <code>2ND</code>, <code>II</code>, <code>3RD</code>, <code>III</code>, <code>4TH</code>, <code>IV</code>, <code>5TH</code>, <code>V</code>, <code>6TH</code>, <code>VI</code>, <code>7TH</code>, <code>VII</code>, <code>8TH</code>, <code>VIII</code>, <code>9TH</code> or <code>IX</code>.</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
+          </tr><tr>
+            <td>cdl_indicator</td>
+            <td>CDL indicator</td>
+            <td>FMCSA required field that denotes whether the credential is a <q>Commercial Driver’s License</q> or a <q>Commercial Learner’s Permit</q>. This field is either absent or has value <code>1</code> (Commercial Driver’s License).</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
+          </tr><tr>
+            <td>dhs_compliance</td>
+            <td>Compliance type.</td>
+            <td>Indicates compliance with REAL ID. Allowed values are <code>F</code> (fully compliant) or <code>N</code> (non-compliant).</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
+          </tr><tr>
+            <td>dhs_compliance_text</td>
+            <td>Non-REAL ID credential text</td>
+            <td>Text, agreed on between the Issuing Authority and DHS, appearing on credentials not meeting REAL ID requirements.</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
+          </tr><tr>
+            <td>dhs_temporary_lawful_status</td>
+            <td>Limited duration document indicator</td>
+            <td>Denotes whether the credential holder has temporary lawful status. This field is either absent or has value <code>1</code> (temporary lawful status).</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
+          </tr><tr>
+            <td>domestic_driving_privileges</td>
+            <td>Domestic categories of vehicles / restrictions / conditions.</td>
+            <td>Vehicle types the license holder is authorized to operate.</td>
+            <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON">JSON</a></td>
+          </tr><tr>
+            <td>edl_credential</td>
+            <td>EDL indicator</td>
+            <td>Either absent or has one of the following values if the credential is an EDLc: <code>1</code> (Driver’s license) or <code>2</code> (Identification card).</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
+          </tr><tr>
+            <td>family_name_truncation</td>
+            <td>Family name truncation</td>
+            <td>Code that indicates whether the field has been truncated (<code>T</code>), has not been truncated (<code>N</code>), or unknown whether truncated (<code>U</code>).</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
+          </tr><tr>
+            <td>given_name_truncation</td>
+            <td>Given name truncation</td>
+            <td>Code that indicates whether either the first name or the middle name(s) have been truncated (<code>T</code>), have not been truncated (<code>N</code>), or unknown whether truncated (<code>U</code>).</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
+          </tr><tr>
+            <td>hazmat_endorsement_expiration_date</td>
+            <td>HAZMAT endorsement expiration date</td>
+            <td>Date on which the hazardous material endorsement granted by the document is no longer valid.</td>
+            <td><a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC3339 full-date</a></td>
+          </tr><tr>
+            <td>name_suffix</td>
+            <td>Name suffix</td>
+            <td>Name suffix of the individual that has been issued the credential. Allowed values are <code>JR</code>, <code>SR</code>, <code>1ST</code>, <code>I</code>, <code>2ND</code>, <code>II</code>, <code>3RD</code>, <code>III</code>, <code>4TH</code>, <code>IV</code>, <code>5TH</code>, <code>V</code>, <code>6TH</code>, <code>VI</code>, <code>7TH</code>, <code>VII</code>, <code>8TH</code>, <code>VIII</code>, <code>9TH</code> or <code>IX</code>.</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
+          </tr><tr>
+            <td>organ_donor</td>
+            <td>Organ donor.</td>
+            <td>Denotes whether the credential holder is an organ donor. This field is either absent or has value <code>1</code> (Donor).</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
+          </tr><tr>
+            <td>race_ethnicity</td>
+            <td>Race / ethnicity.</td>
+            <td>Codes for race or ethnicity of the credential holder, as defined in AAMVA D20.</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
+          </tr><tr>
+            <td>resident_county</td>
+            <td>Resident county</td>
+            <td>The 3-digit county code of the county where the credential holder lives, as per the 2010 FIPS Codes for Counties and County Equivalent Entities.</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
+          </tr><tr>
+            <td>sex</td>
+            <td>Credential holder’s sex.</td>
+            <td>In line with the AAMVA Card Design Specification, this element can have one of the following values: <code>1</code> (Male), <code>2</code> (Female) or <code>9</code> (Not Specified).</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
+          </tr><tr>
+            <td>veteran</td>
+            <td>Whether the credential holder is a veteran.</td>
+            <td>This field is either absent or has value <code>1</code> (Veteran).</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
+          </tr><tr>
+            <td>weight_range</td>
+            <td>Weight range</td>
+            <td>Indicates the approximate weight range of the credential holder: <code>0</code> (up to 31 kg), <code>1</code> (32 – 45 kg), <code>2</code> (46 - 59 kg), <code>3</code> (60 - 70 kg), <code>4</code> (71 - 86 kg), <code>5</code> (87 - 100 kg), <code>6</code> (101 - 113 kg), <code>7</code> (114 - 127 kg), <code>8</code> (128 – 145 kg), <code>9</code> (146+ kg).</td>
+            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
           </tr>
         </tbody>
       </table>
