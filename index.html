@@ -184,10 +184,10 @@ Compatability with the W3C Verifiable Credentials data model.
         "expiry_date": "2017-01-01"
       }],
       "un_distinguishing_sign": "USA",
-      "aka_suffix": "1ST",
+      "aamva_aka_suffix": "1ST",
       "sex": 2,
-      "family_name_truncation": "N",
-      "given_name_truncation": "N"
+      "aamva_family_name_truncation": "N",
+      "aamva_given_name_truncation": "N"
     }
   }
 }
@@ -210,7 +210,8 @@ modelled in a way that is in keeping with the W3C Verifiable Credentials standar
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "https://w3id.org/vdl/v1"
+    "https://w3id.org/vdl/v1",
+    "https://w3id.org/security/suites/ed25519-2020/v1"
   ],
   "type": [
     "VerifiableCredential",
@@ -221,16 +222,16 @@ modelled in a way that is in keeping with the W3C Verifiable Credentials standar
   "expirationDate": "2022-08-27T12:00:00.0000000-06:00",
   "credentialSubject": {
     "id": "did:example:12347abcd",
-    "familyName": "TURNER",
-    "givenName": "SUSAN",
-    "portrait": "/9j/4AAQSkZJRgABAQEAkACQA...gcdgck5HtRRSClooooP/2Q==,
-    "birthDate": "1998-08-28",
-    "licenseDetails": {
+    "driversLicense": {
       "type": "Iso18013DriversLicense",
-      "documentNumber": "542426814",
-      "issuingCountry": "US",
-      "issuingAuthority": "CO",
-      "drivingPrivileges": [
+      "portrait": "/9j/4AAQSkZJRgABAQEAkACQA...gcdgck5HtRRSClooooP/2Q==",
+      "document_number": "542426814",
+      "family_name": "TURNER",
+      "given_name": "SUSAN",
+      "birth_date": "1998-08-28",
+      "issuing_country": "US",
+      "issuing_authority": "CO",
+      "driving_privileges": [
         {
           "codes": [{"code": "D"}],
           "vehicleCategoryCode": "D",
@@ -243,17 +244,15 @@ modelled in a way that is in keeping with the W3C Verifiable Credentials standar
           "issueDate": "2019-01-01",
           "expiryDate": "2017-01-01"
         }],
-      "unDistinguishingSign": "USA",
-    },
+      "un_distinguishing_sign": "USA"
+    }
   },
   "proof": {
     "type": "Ed25519Signature2020",
     "created": "2021-06-20T00:17:01Z",
-    "verificationMethod": "did:key:z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5
-      #z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5",
+    "verificationMethod": "did:key:z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5#z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4zKSH1WmuSQ8tcpSB6mtaSGhtzvMnBQSckqrpTDm3wQyNfHd6rctuST2
-      cyzaKSY135Kp6ZYMyFaiLvBUjJ89GP7V"
+    "proofValue": "z4zKSH1WmuSQ8tcpSB6mtaSGhtzvMnBQSckqrpTDm3wQyNfHd6rctuST2cyzaKSY135Kp6ZYMyFaiLvBUjJ89GP7V"
   }
 }
       </pre>
