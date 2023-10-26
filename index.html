@@ -155,9 +155,17 @@ Compatability with the W3C Verifiable Credentials data model.
     "VerifiableCredential",
     "Iso18013DriversLicenseCredential"
   ],
-  "issuer": "did:key:z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5",
-  "issuanceDate": "2018-01-15T10:00:00.0000000-07:00",
-  "expirationDate": "2022-08-27T12:00:00.0000000-06:00",
+  "issuer": {
+    "id": "did:key:z6MkjxvA4FNrQUhr8f7xhdQuP1VPzErkcnfxsRaU5oFgy2E5",
+    "name": "Utopia Department of Motor Vehicles",
+    "url": "https://dmv.utopia.example/",
+    "image": "https://dmv.utopia.example/logo.png"
+  },
+  "issuanceDate": "2023-11-15T10:00:00.0000000-07:00",
+  "expirationDate": "2028-11-15T12:00:00.0000000-06:00",
+  "name": "Utopia Driver's License",
+  "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUg...kSuQmCC",
+  "description": "Susan Turner's Utopia Driver's License.",
   "credentialSubject": {
     "id": "did:example:12347abcd",
     "driversLicense": {
@@ -167,8 +175,8 @@ Compatability with the W3C Verifiable Credentials data model.
       "given_name": "SUSAN",
       "portrait": "/9j/4AAQSkZJRgABAQEAkACQA...gcdgck5HtRRSClooooP/2Q==",
       "birth_date": "1998-08-28",
-      "issue_date": "2018-01-15T10:00:00.0000000-07:00",
-      "expiry_date": "2022-08-27T12:00:00.0000000-06:00",
+      "issue_date": "2023-01-15T10:00:00.0000000-07:00",
+      "expiry_date": "2028-08-27T12:00:00.0000000-06:00",
       "issuing_country": "US",
       "issuing_authority": "CO",
       "driving_privileges": [{
