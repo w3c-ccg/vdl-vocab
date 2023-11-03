@@ -46,7 +46,7 @@
         "age_over_65": "https://w3id.org/vdl#ageOver65",
         "birth_date": {
           "@id": "https://w3id.org/vdl#birthDate",
-          "@type": "https://www.rfc-editor.org/rfc/rfc3339#full-date"
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
         "birth_place": "https://w3id.org/vdl#birthPlace",
         "document_number": "https://w3id.org/vdl#documentNumber",
@@ -56,7 +56,7 @@
         },
         "expiry_date": {
           "@id": "https://w3id.org/vdl#expiryDate",
-          "@type": "https://w3id.org/vdl#date-time-or-full-date"
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
         "eye_colour": "https://w3id.org/vdl#eyeColour",
         "family_name": "https://w3id.org/vdl#familyName",
@@ -70,7 +70,7 @@
         },
         "issue_date": {
           "@id": "https://w3id.org/vdl#issueDate",
-          "@type": "https://w3id.org/vdl#date-time-or-full-date"
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
         "issuing_authority": "https://w3id.org/vdl#issuingAuthority",
         "issuing_country": "https://w3id.org/vdl#issuingCountry",
@@ -82,7 +82,7 @@
         },
         "portrait_capture_date": {
           "@id": "https://w3id.org/vdl#portraitCaptureDate",
-          "@type": "https://www.rfc-editor.org/rfc/rfc3339#date-time"
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
         "resident_address": "https://w3id.org/vdl#residentAddress",
         "resident_city": "https://w3id.org/vdl#residentCity",
