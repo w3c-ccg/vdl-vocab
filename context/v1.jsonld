@@ -3,11 +3,29 @@
     "@protected": true,
     "id": "@id",
     "type": "@type",
-    "driversLicense": {
-      "@id": "https://w3id.org/vdl#license",
+    "name": "https://schema.org/name",
+    "description": "https://schema.org/description",
+    "image": {
+      "@id": "https://schema.org/image",
       "@type": "@id"
     },
-    "Iso18013DriversLicenseCredential": "https://w3id.org/vdl#Iso18013DriversLicenseCredential",
+    "url": {
+      "@id": "https://schema.org/url",
+      "@type": "@id"
+    },
+    "Iso18013DriversLicenseCredential":
+      "https://w3id.org/vdl#Iso18013DriversLicenseCredential",
+    "LicensedDriver": {
+      "@id": "https://w3id.org/vdl#LicensedDriver",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "driversLicense": {
+          "@id": "https://w3id.org/vdl#license",
+          "@type": "@id"
+        }
+      }
+    },
     "Iso18013DriversLicense": {
       "@id": "https://w3id.org/vdl#Iso18013DriversLicense",
       "@context": {
@@ -31,7 +49,6 @@
           "@type": "https://www.rfc-editor.org/rfc/rfc3339#full-date"
         },
         "birth_place": "https://w3id.org/vdl#birthPlace",
-        "description": "https://schema.org/description",
         "document_number": "https://w3id.org/vdl#documentNumber",
         "driving_privileges": {
           "@id": "https://w3id.org/vdl#drivingPrivileges",
@@ -51,10 +68,6 @@
           "@id": "https://w3id.org/vdl#height",
           "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
         },
-        "image": {
-          "@id": "https://schema.org/image",
-          "@type": "@id"
-        },
         "issue_date": {
           "@id": "https://w3id.org/vdl#issueDate",
           "@type": "https://w3id.org/vdl#date-time-or-full-date"
@@ -63,7 +76,6 @@
         "issuing_country": "https://w3id.org/vdl#issuingCountry",
         "issuing_jurisdiction": "https://w3id.org/vdl#issuingJurisdiction",
         "nationality": "https://w3id.org/vdl#nationality",
-        "name": "https://schema.org/name",
         "portrait": {
           "@id": "https://w3id.org/vdl#portrait",
           "@type": "http://www.w3.org/2001/XMLSchema#base64Binary"
@@ -86,7 +98,6 @@
           "@type": "http://www.w3.org/2001/XMLSchema#base64Binary"
         },
         "un_distinguishing_sign": "https://w3id.org/vdl#unDistinguishingSign",
-        "url": "https://schema.org/url",
         "weight": {
           "@id": "https://w3id.org/vdl#weight",
           "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
