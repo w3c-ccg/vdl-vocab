@@ -78,7 +78,7 @@
         "nationality": "https://w3id.org/vdl#nationality",
         "portrait": {
           "@id": "https://w3id.org/vdl#portrait",
-          "@type": "http://www.w3.org/2001/XMLSchema#base64Binary"
+          "@type": "@id"
         },
         "portrait_capture_date": {
           "@id": "https://w3id.org/vdl#portraitCaptureDate",
@@ -95,7 +95,7 @@
         },
         "signature_usual_mark": {
           "@id": "https://w3id.org/vdl#signatureUsualMark",
-          "@type": "http://www.w3.org/2001/XMLSchema#base64Binary"
+          "@type": "@id"
         },
         "un_distinguishing_sign": "https://w3id.org/vdl#unDistinguishingSign",
         "weight": {
