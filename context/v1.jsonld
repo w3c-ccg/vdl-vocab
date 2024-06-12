@@ -103,6 +103,22 @@
           "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
         }
       }
-    }
+    },
+    "OpticalBarcodeCredential": "https://w3id.org/vdl#OpticalBarcodeCredential",
+    "TerseBitstringStatusListEntry": {
+        "@id": "https://w3id.org/vdl#TerseBitstringStatusListEntry",
+        "@context": {
+            "@protected": true,
+            "id": "@id",
+            "type": "@type",
+            "terseStatusListIndex": "https://w3id.org/vdl#terseStatusListIndex",
+            "terseStatusListBaseUrl": "https://w3id.org/vdl#terseStatusListBaseUrl"
+        }
+      },
+      "AamvaDriversLicenseScannableInformation": "https://w3id.org/vdl#AamvaDriversLicenseScannableInformation",
+      "protectedComponentIndex": {
+        "@id":"https://w3id.org/cadmv#protectedComponentIndex",
+        "@type":"https://w3id.org/security#multibase"
+      }
   }
 }
