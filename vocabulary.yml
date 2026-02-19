@@ -1,0 +1,252 @@
+# Verifiable Driver's License Vocabulary
+#
+# This file is the source for the HTML, Turtle, and JSON-LD versions of the
+# vocabulary. Run `npm run build` to generate them. The JSON-LD context at
+# context/v2.jsonld is the source of truth for term names, IRIs, and types.
+
+json_ld:
+  protected: true
+  alias:
+    id: "@id"
+    type: "@type"
+
+vocab:
+  - id: vdl
+    value: https://w3id.org/vdl#
+    context: https://w3id.org/vdl/v2
+
+ontology:
+  - property: dc:title
+    value: Verifiable Driver's License Vocabulary
+
+  - property: dc:description
+    value: RDFS [[RDF-SCHEMA]] vocabulary for expressing ISO 18013 Mobile Driver's License data as Verifiable Credentials
+
+property:
+  - id: familyName
+    known_as: family_name
+    label: Family name
+    comment: Last name, surname, or primary identifier, of the licence holder.
+    range: xsd:string
+
+  - id: givenName
+    known_as: given_name
+    label: Given names
+    comment: First name(s), other name(s), or secondary identifier, of the licence holder.
+    range: xsd:string
+
+  - id: birthDate
+    known_as: birth_date
+    label: Date of birth
+    comment: Day, month, year on which the licence holder was born. If unknown, approximate.
+    range: xsd:date
+
+  - id: issueDate
+    known_as: issue_date
+    label: Date of Issue
+    comment: Date licence document was issued.
+    range: [xsd:dateTime, xsd:date]
+    range_union: true
+
+  - id: expiryDate
+    known_as: expiry_date
+    label: Date of Expiry
+    comment: Date licence document expires.
+    range: [xsd:dateTime, xsd:date]
+    range_union: true
+
+  - id: issuingCountry
+    known_as: issuing_country
+    label: Issuing country
+    comment: Country code as alpha 2 code, defined in ISO 3166-1, which issued the mDL or within which the licensing authority is located.
+    range: xsd:string
+
+  - id: issuingAuthority
+    known_as: issuing_authority
+    label: Issuing authority
+    comment: Name of licensing authority, or issuing country if separate licensing authorities have not been authorized.
+    range: xsd:string
+
+  - id: documentNumber
+    known_as: document_number
+    label: Licence number
+    comment: The number assigned or calculated by the issuing authority.
+    range: xsd:string
+
+  - id: administrativeNumber
+    known_as: administrative_number
+    label: Administrative number
+    comment: An audit control number assigned by the licensing authority
+    range: xsd:string
+
+  - id: drivingPrivileges
+    known_as: driving_privileges
+    label: Categories of vehicles/restrictions/conditions
+    comment: Driving privileges the licence holder is authorized to drive. It consists of category issue date, expiry date, restriction/condition sign code, restriction/condition sign and restriction/condition value.
+    range: rdf:JSON
+
+  - id: unDistinguishingSign
+    known_as: un_distinguishing_sign
+    label: UN distinguishing sign
+    comment: Distinguishing sign of the issuing country according to 18013-1 annex F NOTE this field is added for purposes of the UN conventions on driving licences.
+    range: xsd:string
+
+  - id: sex
+    known_as: sex
+    label: Sex
+    comment: Licence holder’s sex using values as defined in ISO/IEC 5218.
+    range: xsd:unsignedInt
+
+  - id: height
+    known_as: height
+    label: Height (cm)
+    comment: A Licence holder’s height in centimetres.
+    range: xsd:unsignedInt
+
+  - id: weight
+    known_as: weight
+    label: Weight (kg)
+    comment: A Licence holder’s weight in kilograms O F3N uint.
+    range: xsd:unsignedInt
+
+  - id: eyeColour
+    known_as: eye_colour
+    label: Eye colour
+    comment: "Licence holder’s eye colour: black, blue, brown, dichromatic, grey, green, hazel, maroon, pink or unknown."
+    range: xsd:string
+
+  - id: hairColour
+    known_as: hair_colour
+    label: Hair colour
+    comment: "Licence holder’s hair colour: bald, black, blond, brown, grey, red, auburn, sandy, white or unknown."
+    range: xsd:string
+
+  - id: birthPlace
+    known_as: birth_place
+    label: Place of birth
+    comment: Country and municipality or state/province where the licence holder was born.
+    range: xsd:string
+
+  - id: residentAddress
+    known_as: resident_address
+    label: Permanent place of residence
+    comment: The place where the licence holder resides and/or may be contacted (street/house number, municipality etc.)
+    range: xsd:string
+
+  - id: portrait
+    known_as: portrait
+    label: Portrait of mDL Holder
+    comment: A reproduction of the licence holder’s portrait.
+    range: xsd:base64Binary
+
+  - id: portraitCaptureDate
+    known_as: portrait_capture_date
+    label: Portrait image timestamp
+    comment: Date when picture was taken.
+    range: xsd:dateTime
+
+  - id: ageInYears
+    known_as: age_in_years
+    label: "Age attestation: How old are you (in years)?"
+    comment: The age of the mDL Holder.
+    range: xsd:unsignedInt
+
+  - id: ageOver18
+    known_as: age_over_18
+    label: "Age attestation: Nearest “true” attestation above 18."
+    comment: Is the holder over 18.
+    range: xsd:boolean
+
+  - id: ageOver21
+    known_as: age_over_21
+    label: "Age attestation: Nearest “true” attestation above 21."
+    comment: Is the holder over 21.
+    range: xsd:boolean
+
+  - id: ageOver25
+    known_as: age_over_25
+    label: "Age attestation: Nearest “true” attestation above 25."
+    comment: Is the holder over 25.
+    range: xsd:boolean
+
+  - id: ageOver62
+    known_as: age_over_62
+    label: "Age attestation: Nearest “true” attestation above 62."
+    comment: Is the holder over 62.
+    range: xsd:boolean
+
+  - id: ageOver65
+    known_as: age_over_65
+    label: "Age attestation: Nearest “true” attestation above 65."
+    comment: Is the holder over 65.
+    range: xsd:boolean
+
+  - id: ageBirthYear
+    known_as: age_birth_year
+    label: "Age attestation: In what year were you born?"
+    comment: The year when the mDL Holder was born.
+    range: xsd:unsignedInt
+
+  - id: issuingJurisdiction
+    known_as: issuing_jurisdiction
+    label: Issuing jurisdiction
+    comment: Country subdivision code as defined in clause 8, ISO 3166-2. The first part of the code shall be the same as the value for issuing_country. This element is intended to be used in cases where the issuing jurisdiction is different from the issuing authority.
+    range: xsd:string
+
+  - id: nationality
+    known_as: nationality
+    label: Nationality
+    comment: Nationality of the mDL Holder as two letter country code (alpha-2 code) defined in ISO 3166-1.
+    range: xsd:string
+
+  - id: residentCity
+    known_as: resident_city
+    label: Resident city
+    comment: The city where the mDL Holder lives.
+    range: xsd:string
+
+  - id: residentCountry
+    known_as: resident_country
+    label: Resident country
+    comment: The country where the mDL Holder lives.
+    range: xsd:string
+
+  - id: residentState
+    known_as: resident_state
+    label: Resident state/province/district
+    comment: The state/province/district where the mDL Holder lives.
+    range: xsd:string
+
+  - id: residentPostalCode
+    known_as: resident_postal_code
+    label: Resident postal code
+    comment: The postal code of the mDL Holder.
+    range: xsd:string
+
+  - id: familyNameNationalCharacter
+    known_as: family_name_national_character
+    label: Family name of holder in full UTF-8 character set
+    comment: The family name of the mDL Holder in his/her national characters.
+    range: xsd:string
+
+  - id: givenNameNationalCharacter
+    known_as: given_name_national_character
+    label: Given name of holder in full UTF-8 character set
+    comment: The given name of the mDL Holder in his/her national characters.
+    range: xsd:string
+
+  - id: signatureUsualMark
+    known_as: signature_usual_mark
+    label: Signature / usual mark
+    comment: Image of the signature or usual mark of the mDL Holder.
+    range: xsd:base64Binary
+
+  - id: terseStatusListBaseUrl
+    label: Terse Status List Base URL
+    comment: The base URL location of a status list.
+    range: IRI
+
+  - id: terseStatusListIndex
+    label: Terse Status List Index
+    comment: An index within a status list.
+    range: xsd:unsignedInt
