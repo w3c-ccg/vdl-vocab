@@ -9,8 +9,10 @@
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
-    "build": "yml2vocab -c -v vocabulary.yml -t template.html && mv vocabulary.html index.html",
-    "lint": "yml2vocab -c -v vocabulary.yml -t template.html"
+    "build": "npm run build:core && npm run build:aamva",
+    "build:core": "yml2vocab -c -v vocabulary.yml -t template.html && mv vocabulary.html index.html",
+    "build:aamva": "yml2vocab -c -v aamva/vocabulary.yml -t aamva/template.html && mv aamva/vocabulary.html aamva/index.html",
+    "lint": "yml2vocab -c -v vocabulary.yml -t template.html && yml2vocab -c -v aamva/vocabulary.yml -t aamva/template.html"
   },
   "devDependencies": {
     "yml2vocab": "^1.13.0"

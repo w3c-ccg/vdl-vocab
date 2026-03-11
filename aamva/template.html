@@ -1,0 +1,108 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="light dark">
+    <title>Verifiable Driver's License AAMVA Vocabulary</title>
+    <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+    <script class="remove">
+      var respecConfig = {
+        specStatus: "unofficial",
+        shortName: "vdl-aamva-vocab",
+        edDraftURI: "https://w3c-ccg.github.io/vdl-vocab/aamva/",
+        editors: [{
+          name: "Manu Sporny", url: "https://www.linkedin.com/in/manusporny/",
+          company: "Digital Bazaar", companyURL: "http://digitalbazaar.com/"
+        }, {
+          name: "Timothée Haudebourg", url: "https://github.com/timothee-haudebourg/",
+          company: "Spruce Systems, Inc.", companyURL: "https://spruceid.com/"
+        }],
+        alternateFormats: [
+          {uri: "vocabulary.ttl", label: "Turtle"},
+          {uri: "vocabulary.jsonld", label: "JSON-LD"}
+        ],
+        maxTocLevel: 2,
+        inlineCSS: true,
+        doRDFa: false,
+        noIDLIn: true,
+        noLegacyStyle: false
+      };
+    </script>
+    <style>
+      dl.terms dt {
+        float: left;
+        clear: left;
+        width: 10vw;
+      }
+
+      dl.terms dd {
+        margin-left: 15vw;
+      }
+
+      dl.terms dd:after {
+        content: '';
+        display: block;
+        clear: both;
+        margin-bottom: 5px;
+      }
+
+      .term_definitions section {
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: darkgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="abstract">
+      <p>
+This vocabulary extends the
+<a href="https://w3id.org/vdl">Verifiable Driver's License Vocabulary</a> with
+terms for all data elements defined by the mDL Implementation Guidelines issued
+by the American Association of Motor Vehicle Administrators (AAMVA).
+      </p>
+      <p>
+Alternate versions of the vocabulary definition exist in
+<a rel="alternate" id="alt-turtle">Turtle</a> and
+<a rel="alternate" id="alt-jsonld">JSON-LD</a>.
+      </p>
+    </section>
+
+    <section id="sotd">
+This document is experimental.
+    </section>
+
+    <section>
+      <h2>Namespaces</h2>
+      <p>This specification makes use of the following namespaces:</p>
+      <dl class="terms" id="namespaces">
+      </dl>
+    </section>
+
+    <section>
+      <h2><code>@context</code> files</h2>
+      <p>The following <code>@context</code> files make use of the terms defined in this specification:</p>
+      <ul id="contexts">
+      </ul>
+    </section>
+
+    <section id="term_definitions">
+      <h2>The Verifiable Driver's License AAMVA Vocabulary</h2>
+
+      <section id="property_definitions" class="term_definitions">
+        <h3>Property definitions</h3>
+      </section>
+
+      <section id="class_definitions" class="term_definitions">
+        <h3>Class definitions</h3>
+      </section>
+
+      <section id="datatype_definitions" class="term_definitions">
+        <h3>Datatype definitions</h3>
+      </section>
+
+      <section id="individual_definitions" class="term_definitions">
+        <h3>Definitions for individuals</h3>
+      </section>
+    </section>
+  </body>
+</html>

@@ -228,125 +228,16 @@ Licenses.
       </section>
     </section>
 
-    <section class="normative">
+    <section>
       <h2>The Verifiable Driver's License AAMVA Vocabulary</h2>
 
       <p>
-This vocabulary extends the Verifiable Driver's License Core Vocabulary with
-terms for all data elements defined by the mDL Implementation Guidelines issued
-by the American Association of Motor Vehicle Administrators (AAMVA). It can be
-imported as a JSON-LD context behind the URL
+The <a href="aamva/">Verifiable Driver's License AAMVA Vocabulary</a> extends
+this vocabulary with terms for all data elements defined by the mDL
+Implementation Guidelines issued by the American Association of Motor Vehicle
+Administrators (AAMVA). It can be imported as a JSON-LD context behind the URL
 <a href="https://w3id.org/vdl/aamva/v1">https://w3id.org/vdl/aamva/v1</a>.
       </p>
-
-      <table class="simple">
-        <thead>
-          <tr>
-            <th>Identifier</th>
-            <th>Field Name</th>
-            <th>Field Description</th>
-            <th>Data Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>aamva_aka_family_name_v2</td>
-            <td>Alias / AKA family name</td>
-            <td>Other family name by which credential holder is known.</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a> (latin1, 150 characters maximum)</td>
-          </tr><tr>
-            <td>aamva_aka_given_name_v2</td>
-            <td>Alias / AKA given name</td>
-            <td>Other given name by which credential holder is known.</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a> (latin1, 150 characters maximum)</td>
-          </tr><tr>
-            <td>aamva_aka_suffix</td>
-            <td>Alias / AKA Suffix name</td>
-            <td>Other suffix by which credential holder is known. Allowed values are <code>JR</code>, <code>SR</code>, <code>1ST</code>, <code>I</code>, <code>2ND</code>, <code>II</code>, <code>3RD</code>, <code>III</code>, <code>4TH</code>, <code>IV</code>, <code>5TH</code>, <code>V</code>, <code>6TH</code>, <code>VI</code>, <code>7TH</code>, <code>VII</code>, <code>8TH</code>, <code>VIII</code>, <code>9TH</code> or <code>IX</code>.</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
-          </tr><tr>
-            <td>aamva_cdl_indicator</td>
-            <td>CDL indicator</td>
-            <td>FMCSA required field that denotes whether the credential is a <q>Commercial Driver’s License</q> or a <q>Commercial Learner’s Permit</q>. This field is either absent or has value <code>1</code> (Commercial Driver’s License).</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
-          </tr><tr>
-            <td>aamva_dhs_compliance</td>
-            <td>Compliance type.</td>
-            <td>Indicates compliance with REAL ID. Allowed values are <code>F</code> (fully compliant) or <code>N</code> (non-compliant).</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
-          </tr><tr>
-            <td>aamva_dhs_compliance_text</td>
-            <td>Non-REAL ID credential text</td>
-            <td>Text, agreed on between the Issuing Authority and DHS, appearing on credentials not meeting REAL ID requirements.</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
-          </tr><tr>
-            <td>aamva_dhs_temporary_lawful_status</td>
-            <td>Limited duration document indicator</td>
-            <td>Denotes whether the credential holder has temporary lawful status. This field is either absent or has value <code>1</code> (temporary lawful status).</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
-          </tr><tr>
-            <td>aamva_domestic_driving_privileges</td>
-            <td>Domestic categories of vehicles / restrictions / conditions.</td>
-            <td>Vehicle types the license holder is authorized to operate.</td>
-            <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON">JSON</a></td>
-          </tr><tr>
-            <td>aamva_edl_credential</td>
-            <td>EDL indicator</td>
-            <td>Either absent or has one of the following values if the credential is an EDLc: <code>1</code> (Driver’s license) or <code>2</code> (Identification card).</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
-          </tr><tr>
-            <td>aamva_family_name_truncation</td>
-            <td>Family name truncation</td>
-            <td>Code that indicates whether the field has been truncated (<code>T</code>), has not been truncated (<code>N</code>), or unknown whether truncated (<code>U</code>).</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
-          </tr><tr>
-            <td>aamva_given_name_truncation</td>
-            <td>Given name truncation</td>
-            <td>Code that indicates whether either the first name or the middle name(s) have been truncated (<code>T</code>), have not been truncated (<code>N</code>), or unknown whether truncated (<code>U</code>).</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
-          </tr><tr>
-            <td>aamva_hazmat_endorsement_expiration_date</td>
-            <td>HAZMAT endorsement expiration date</td>
-            <td>Date on which the hazardous material endorsement granted by the document is no longer valid.</td>
-            <td><a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC3339 full-date</a></td>
-          </tr><tr>
-            <td>aamva_name_suffix</td>
-            <td>Name suffix</td>
-            <td>Name suffix of the individual that has been issued the credential. Allowed values are <code>JR</code>, <code>SR</code>, <code>1ST</code>, <code>I</code>, <code>2ND</code>, <code>II</code>, <code>3RD</code>, <code>III</code>, <code>4TH</code>, <code>IV</code>, <code>5TH</code>, <code>V</code>, <code>6TH</code>, <code>VI</code>, <code>7TH</code>, <code>VII</code>, <code>8TH</code>, <code>VIII</code>, <code>9TH</code> or <code>IX</code>.</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
-          </tr><tr>
-            <td>aamva_organ_donor</td>
-            <td>Organ donor.</td>
-            <td>Denotes whether the credential holder is an organ donor. This field is either absent or has value <code>1</code> (Donor).</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
-          </tr><tr>
-            <td>aamva_race_ethnicity</td>
-            <td>Race / ethnicity.</td>
-            <td>Codes for race or ethnicity of the credential holder, as defined in AAMVA D20.</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
-          </tr><tr>
-            <td>aamva_resident_county</td>
-            <td>Resident county</td>
-            <td>The 3-digit county code of the county where the credential holder lives, as per the 2010 FIPS Codes for Counties and County Equivalent Entities.</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#string">String</a></td>
-          </tr><tr>
-            <td>aamva_sex</td>
-            <td>Credential holder’s sex.</td>
-            <td>In line with the AAMVA Card Design Specification, this element can have one of the following values: <code>1</code> (Male), <code>2</code> (Female) or <code>9</code> (Not Specified).</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
-          </tr><tr>
-            <td>aamva_veteran</td>
-            <td>Whether the credential holder is a veteran.</td>
-            <td>This field is either absent or has value <code>1</code> (Veteran).</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
-          </tr><tr>
-            <td>aamva_weight_range</td>
-            <td>Weight range</td>
-            <td>Indicates the approximate weight range of the credential holder: <code>0</code> (up to 31 kg), <code>1</code> (32 – 45 kg), <code>2</code> (46 - 59 kg), <code>3</code> (60 - 70 kg), <code>4</code> (71 - 86 kg), <code>5</code> (87 - 100 kg), <code>6</code> (101 - 113 kg), <code>7</code> (114 - 127 kg), <code>8</code> (128 – 145 kg), <code>9</code> (146+ kg).</td>
-            <td><a href="http://www.w3.org/2001/XMLSchema#unsignedInt">32bits unsigned integer number</a></td>
-          </tr>
-        </tbody>
-      </table>
     </section>
 
     <section class="informative">

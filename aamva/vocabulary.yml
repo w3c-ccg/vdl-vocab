@@ -1,0 +1,139 @@
+# Verifiable Driver's License AAMVA Vocabulary
+#
+# This file is the source for the HTML, Turtle, and JSON-LD versions of the
+# AAMVA vocabulary. Run `npm run build` to generate them. The JSON-LD context
+# at context/aamva/v1.jsonld is the source of truth for term names, IRIs, and
+# types.
+
+json_ld:
+  protected: true
+
+vocab:
+  - id: aamva
+    value: https://w3id.org/vdl/aamva#
+    context: https://w3id.org/vdl/aamva/v1
+
+ontology:
+  - property: dc:title
+    value: Verifiable Driver's License AAMVA Vocabulary
+
+  - property: dc:description
+    value: RDFS [[RDF-SCHEMA]] vocabulary for the data elements defined by the AAMVA mDL Implementation Guidelines
+
+  - property: rdfs:seeAlso
+    value: https://w3id.org/vdl
+
+property:
+  - id: akaFamilyNameV2
+    known_as: aamva_aka_family_name_v2
+    label: Alias / AKA family name
+    comment: Other family name by which credential holder is known. Latin1, 150 characters maximum.
+    range: xsd:string
+
+  - id: akaGivenNameV2
+    known_as: aamva_aka_given_name_v2
+    label: Alias / AKA given name
+    comment: Other given name by which credential holder is known. Latin1, 150 characters maximum.
+    range: xsd:string
+
+  - id: akaSuffix
+    known_as: aamva_aka_suffix
+    label: Alias / AKA Suffix name
+    comment: Other suffix by which credential holder is known. Allowed values are <code>JR</code>, <code>SR</code>, <code>1ST</code>, <code>I</code>, <code>2ND</code>, <code>II</code>, <code>3RD</code>, <code>III</code>, <code>4TH</code>, <code>IV</code>, <code>5TH</code>, <code>V</code>, <code>6TH</code>, <code>VI</code>, <code>7TH</code>, <code>VII</code>, <code>8TH</code>, <code>VIII</code>, <code>9TH</code> or <code>IX</code>.
+    range: xsd:string
+
+  - id: cdlIndicator
+    known_as: aamva_cdl_indicator
+    label: CDL indicator
+    comment: FMCSA required field that denotes whether the credential is a <q>Commercial Driver’s License</q> or a <q>Commercial Learner’s Permit</q>. This field is either absent or has value <code>1</code> (Commercial Driver’s License).
+    range: xsd:unsignedInt
+
+  - id: dhsCompliance
+    known_as: aamva_dhs_compliance
+    label: Compliance type.
+    comment: Indicates compliance with REAL ID. Allowed values are <code>F</code> (fully compliant) or <code>N</code> (non-compliant).
+    range: xsd:string
+
+  - id: dhsCompliance_text
+    known_as: aamva_dhs_compliance_text
+    label: Non-REAL ID credential text
+    comment: Text, agreed on between the Issuing Authority and DHS, appearing on credentials not meeting REAL ID requirements.
+    range: xsd:string
+
+  - id: dhsTemporaryLawfulStatus
+    known_as: aamva_dhs_temporary_lawful_status
+    label: Limited duration document indicator
+    comment: Denotes whether the credential holder has temporary lawful status. This field is either absent or has value <code>1</code> (temporary lawful status).
+    range: xsd:unsignedInt
+
+  - id: domesticDrivingPrivileges
+    known_as: aamva_domestic_driving_privileges
+    label: Domestic categories of vehicles / restrictions / conditions.
+    comment: Vehicle types the license holder is authorized to operate.
+    range: rdf:JSON
+
+  - id: edlCredential
+    known_as: aamva_edl_credential
+    label: EDL indicator
+    comment: "Either absent or has one of the following values if the credential is an EDLc: <code>1</code> (Driver’s license) or <code>2</code> (Identification card)."
+    range: xsd:unsignedInt
+
+  - id: familyNameTruncation
+    known_as: aamva_family_name_truncation
+    label: Family name truncation
+    comment: Code that indicates whether the field has been truncated (<code>T</code>), has not been truncated (<code>N</code>), or unknown whether truncated (<code>U</code>).
+    range: xsd:string
+
+  - id: givenNameTruncation
+    known_as: aamva_given_name_truncation
+    label: Given name truncation
+    comment: Code that indicates whether either the first name or the middle name(s) have been truncated (<code>T</code>), have not been truncated (<code>N</code>), or unknown whether truncated (<code>U</code>).
+    range: xsd:string
+
+  - id: hazmatEndorsementExpirationDate
+    known_as: aamva_hazmat_endorsement_expiration_date
+    label: HAZMAT endorsement expiration date
+    comment: Date on which the hazardous material endorsement granted by the document is no longer valid.
+    range: xsd:date
+
+  - id: nameSuffix
+    known_as: aamva_name_suffix
+    label: Name suffix
+    comment: Name suffix of the individual that has been issued the credential. Allowed values are <code>JR</code>, <code>SR</code>, <code>1ST</code>, <code>I</code>, <code>2ND</code>, <code>II</code>, <code>3RD</code>, <code>III</code>, <code>4TH</code>, <code>IV</code>, <code>5TH</code>, <code>V</code>, <code>6TH</code>, <code>VI</code>, <code>7TH</code>, <code>VII</code>, <code>8TH</code>, <code>VIII</code>, <code>9TH</code> or <code>IX</code>.
+    range: xsd:string
+
+  - id: organDonor
+    known_as: aamva_organ_donor
+    label: Organ donor.
+    comment: Denotes whether the credential holder is an organ donor. This field is either absent or has value <code>1</code> (Donor).
+    range: xsd:unsignedInt
+
+  - id: raceEthnicity
+    known_as: aamva_race_ethnicity
+    label: Race / ethnicity.
+    comment: Codes for race or ethnicity of the credential holder, as defined in AAMVA D20.
+    range: xsd:string
+
+  - id: residentCounty
+    known_as: aamva_resident_county
+    label: Resident county
+    comment: The 3-digit county code of the county where the credential holder lives, as per the 2010 FIPS Codes for Counties and County Equivalent Entities.
+    range: xsd:string
+
+  - id: sex
+    known_as: aamva_sex
+    label: Credential holder’s sex.
+    comment: "In line with the AAMVA Card Design Specification, this element can have one of the following values: <code>1</code> (Male), <code>2</code> (Female) or <code>9</code> (Not Specified)."
+    range: xsd:unsignedInt
+
+  - id: veteran
+    known_as: aamva_veteran
+    label: Whether the credential holder is a veteran.
+    comment: This field is either absent or has value <code>1</code> (Veteran).
+    range: xsd:unsignedInt
+
+  - id: weightRange
+    known_as: aamva_weight_range
+    label: Weight range
+    comment: "Indicates the approximate weight range of the credential holder: <code>0</code> (up to 31 kg), <code>1</code> (32 – 45 kg), <code>2</code> (46 - 59 kg), <code>3</code> (60 - 70 kg), <code>4</code> (71 - 86 kg), <code>5</code> (87 - 100 kg), <code>6</code> (101 - 113 kg), <code>7</code> (114 - 127 kg), <code>8</code> (128 – 145 kg), <code>9</code> (146+ kg)."
+    range: xsd:unsignedInt
