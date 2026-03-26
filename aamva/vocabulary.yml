@@ -94,7 +94,7 @@ property:
     known_as: aamva_hazmat_endorsement_expiration_date
     label: HAZMAT endorsement expiration date
     comment: Date on which the hazardous material endorsement granted by the document is no longer valid.
-    range: xsd:date
+    range: xsd:dateTime
 
   - id: nameSuffix
     known_as: aamva_name_suffix
