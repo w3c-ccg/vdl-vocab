@@ -15,6 +15,13 @@ vocab:
     value: https://w3id.org/vdl#
     context: https://w3id.org/vdl/v2
 
+prefix:
+  - id: cred
+    value: https://www.w3.org/2018/credentials#
+
+  - id: sch
+    value: https://schema.org/
+
 ontology:
   - property: dc:title
     value: Verifiable Driver's License Vocabulary
@@ -22,27 +29,62 @@ ontology:
   - property: dc:description
     value: RDFS [[RDF-SCHEMA]] vocabulary for expressing ISO 18013 Mobile Driver's License data as Verifiable Credentials
 
+class:
+  - id: Iso18013DriversLicenseCredential
+    label: ISO 18013 driver's license credential
+    comment: A verifiable credential whose subject holds a driver's license that follows the ISO/IEC 18013-5 mDL data model.
+    upper_value: cred:VerifiableCredential
+
+  - id: LicensedDriver
+    label: Licensed driver
+    comment: A person who holds a driver's license. Use the <a href="#license"><code>driversLicense</code></a> property to express the license.
+
+  - id: Iso18013DriversLicense
+    label: ISO 18013 driver's license
+    comment: A driver's license expressed using the ISO/IEC 18013-5 mDL data elements.
+
+  - id: OpticalBarcodeCredential
+    label: Optical barcode credential
+    comment: A verifiable credential that secures data in an optical barcode, such as the PDF417 barcode on a physical driver's license.
+    upper_value: cred:VerifiableCredential
+
+  - id: TerseBitstringStatusListEntry
+    label: Terse bitstring status list entry
+    comment: A compact status entry that uses a Bitstring Status List. The status list URL is derived from a base URL and an index.
+    upper_value: cred:CredentialStatus
+
 property:
+  - id: license
+    known_as: driversLicense
+    label: Driver's license
+    comment: The driver's license held by a licensed driver.
+    domain: vdl:LicensedDriver
+    range: vdl:Iso18013DriversLicense
+
   - id: familyName
     known_as: family_name
+    domain: vdl:Iso18013DriversLicense
     label: Family name
     comment: Last name, surname, or primary identifier, of the licence holder.
     range: xsd:string
 
   - id: givenName
     known_as: given_name
+    domain: vdl:Iso18013DriversLicense
     label: Given names
     comment: First name(s), other name(s), or secondary identifier, of the licence holder.
     range: xsd:string
 
   - id: birthDate
     known_as: birth_date
+    domain: vdl:Iso18013DriversLicense
     label: Date of birth
     comment: Day, month, year on which the licence holder was born. If unknown, approximate.
     range: xsd:date
 
   - id: issueDate
     known_as: issue_date
+    domain: vdl:Iso18013DriversLicense
     label: Date of Issue
     comment: Date licence document was issued.
     range: [xsd:dateTime, xsd:date]
@@ -50,6 +92,7 @@ property:
 
   - id: expiryDate
     known_as: expiry_date
+    domain: vdl:Iso18013DriversLicense
     label: Date of Expiry
     comment: Date licence document expires.
     range: [xsd:dateTime, xsd:date]
@@ -57,196 +100,244 @@ property:
 
   - id: issuingCountry
     known_as: issuing_country
+    domain: vdl:Iso18013DriversLicense
     label: Issuing country
     comment: Country code as alpha 2 code, defined in ISO 3166-1, which issued the mDL or within which the licensing authority is located.
     range: xsd:string
 
   - id: issuingAuthority
     known_as: issuing_authority
+    domain: vdl:Iso18013DriversLicense
     label: Issuing authority
     comment: Name of licensing authority, or issuing country if separate licensing authorities have not been authorized.
     range: xsd:string
 
   - id: documentNumber
     known_as: document_number
+    domain: vdl:Iso18013DriversLicense
     label: Licence number
     comment: The number assigned or calculated by the issuing authority.
     range: xsd:string
 
   - id: administrativeNumber
     known_as: administrative_number
+    domain: vdl:Iso18013DriversLicense
     label: Administrative number
     comment: An audit control number assigned by the licensing authority
     range: xsd:string
 
   - id: drivingPrivileges
     known_as: driving_privileges
+    domain: vdl:Iso18013DriversLicense
     label: Categories of vehicles/restrictions/conditions
     comment: Driving privileges the licence holder is authorized to drive. It consists of category issue date, expiry date, restriction/condition sign code, restriction/condition sign and restriction/condition value.
     range: rdf:JSON
 
   - id: unDistinguishingSign
     known_as: un_distinguishing_sign
+    domain: vdl:Iso18013DriversLicense
     label: UN distinguishing sign
     comment: Distinguishing sign of the issuing country according to 18013-1 annex F NOTE this field is added for purposes of the UN conventions on driving licences.
     range: xsd:string
 
   - id: sex
     known_as: sex
+    domain: vdl:Iso18013DriversLicense
     label: Sex
     comment: Licence holder’s sex using values as defined in ISO/IEC 5218.
     range: xsd:unsignedInt
 
   - id: height
     known_as: height
+    domain: vdl:Iso18013DriversLicense
     label: Height (cm)
     comment: A Licence holder’s height in centimetres.
     range: xsd:unsignedInt
 
   - id: weight
     known_as: weight
+    domain: vdl:Iso18013DriversLicense
     label: Weight (kg)
     comment: A Licence holder’s weight in kilograms O F3N uint.
     range: xsd:unsignedInt
 
   - id: eyeColour
     known_as: eye_colour
+    domain: vdl:Iso18013DriversLicense
     label: Eye colour
     comment: "Licence holder’s eye colour: black, blue, brown, dichromatic, grey, green, hazel, maroon, pink or unknown."
     range: xsd:string
 
   - id: hairColour
     known_as: hair_colour
+    domain: vdl:Iso18013DriversLicense
     label: Hair colour
     comment: "Licence holder’s hair colour: bald, black, blond, brown, grey, red, auburn, sandy, white or unknown."
     range: xsd:string
 
   - id: birthPlace
     known_as: birth_place
+    domain: vdl:Iso18013DriversLicense
     label: Place of birth
     comment: Country and municipality or state/province where the licence holder was born.
     range: xsd:string
 
   - id: residentAddress
     known_as: resident_address
+    domain: vdl:Iso18013DriversLicense
     label: Permanent place of residence
     comment: The place where the licence holder resides and/or may be contacted (street/house number, municipality etc.)
     range: xsd:string
 
   - id: portrait
     known_as: portrait
+    domain: vdl:Iso18013DriversLicense
     label: Portrait of mDL Holder
     comment: A reproduction of the licence holder’s portrait.
     range: xsd:base64Binary
 
   - id: portraitCaptureDate
     known_as: portrait_capture_date
+    domain: vdl:Iso18013DriversLicense
     label: Portrait image timestamp
     comment: Date when picture was taken.
     range: xsd:dateTime
 
   - id: ageInYears
     known_as: age_in_years
+    domain: vdl:Iso18013DriversLicense
     label: "Age attestation: How old are you (in years)?"
     comment: The age of the mDL Holder.
     range: xsd:unsignedInt
 
   - id: ageOver18
     known_as: age_over_18
+    domain: vdl:Iso18013DriversLicense
     label: "Age attestation: Nearest “true” attestation above 18."
     comment: Is the holder over 18.
     range: xsd:boolean
 
   - id: ageOver21
     known_as: age_over_21
+    domain: vdl:Iso18013DriversLicense
     label: "Age attestation: Nearest “true” attestation above 21."
     comment: Is the holder over 21.
     range: xsd:boolean
 
   - id: ageOver25
     known_as: age_over_25
+    domain: vdl:Iso18013DriversLicense
     label: "Age attestation: Nearest “true” attestation above 25."
     comment: Is the holder over 25.
     range: xsd:boolean
 
   - id: ageOver62
     known_as: age_over_62
+    domain: vdl:Iso18013DriversLicense
     label: "Age attestation: Nearest “true” attestation above 62."
     comment: Is the holder over 62.
     range: xsd:boolean
 
   - id: ageOver65
     known_as: age_over_65
+    domain: vdl:Iso18013DriversLicense
     label: "Age attestation: Nearest “true” attestation above 65."
     comment: Is the holder over 65.
     range: xsd:boolean
 
   - id: ageBirthYear
     known_as: age_birth_year
+    domain: vdl:Iso18013DriversLicense
     label: "Age attestation: In what year were you born?"
     comment: The year when the mDL Holder was born.
     range: xsd:unsignedInt
 
   - id: issuingJurisdiction
     known_as: issuing_jurisdiction
+    domain: vdl:Iso18013DriversLicense
     label: Issuing jurisdiction
     comment: Country subdivision code as defined in clause 8, ISO 3166-2. The first part of the code shall be the same as the value for issuing_country. This element is intended to be used in cases where the issuing jurisdiction is different from the issuing authority.
     range: xsd:string
 
   - id: nationality
     known_as: nationality
+    domain: vdl:Iso18013DriversLicense
     label: Nationality
     comment: Nationality of the mDL Holder as two letter country code (alpha-2 code) defined in ISO 3166-1.
     range: xsd:string
 
   - id: residentCity
     known_as: resident_city
+    domain: vdl:Iso18013DriversLicense
     label: Resident city
     comment: The city where the mDL Holder lives.
     range: xsd:string
 
   - id: residentCountry
     known_as: resident_country
+    domain: vdl:Iso18013DriversLicense
     label: Resident country
     comment: The country where the mDL Holder lives.
     range: xsd:string
 
   - id: residentState
     known_as: resident_state
+    domain: vdl:Iso18013DriversLicense
     label: Resident state/province/district
     comment: The state/province/district where the mDL Holder lives.
     range: xsd:string
 
   - id: residentPostalCode
     known_as: resident_postal_code
+    domain: vdl:Iso18013DriversLicense
     label: Resident postal code
     comment: The postal code of the mDL Holder.
     range: xsd:string
 
   - id: familyNameNationalCharacter
     known_as: family_name_national_character
+    domain: vdl:Iso18013DriversLicense
     label: Family name of holder in full UTF-8 character set
     comment: The family name of the mDL Holder in his/her national characters.
     range: xsd:string
 
   - id: givenNameNationalCharacter
     known_as: given_name_national_character
+    domain: vdl:Iso18013DriversLicense
     label: Given name of holder in full UTF-8 character set
     comment: The given name of the mDL Holder in his/her national characters.
     range: xsd:string
 
   - id: signatureUsualMark
     known_as: signature_usual_mark
+    domain: vdl:Iso18013DriversLicense
     label: Signature / usual mark
     comment: Image of the signature or usual mark of the mDL Holder.
     range: xsd:base64Binary
 
   - id: terseStatusListBaseUrl
     label: Terse Status List Base URL
+    domain: vdl:TerseBitstringStatusListEntry
     comment: The base URL location of a status list.
     range: IRI
 
   - id: terseStatusListIndex
     label: Terse Status List Index
+    domain: vdl:TerseBitstringStatusListEntry
     comment: An index within a status list.
     range: xsd:unsignedInt
+
+# External property definitions, listed because the v2 context maps them
+  - id: sch:name
+    label: Name
+
+  - id: sch:description
+    label: Description
+
+  - id: sch:image
+    label: Image
+    range: IRI
+
+  - id: sch:url
+    label: URL
+    range: IRI
