@@ -80,23 +80,21 @@ property:
     domain: vdl:Iso18013DriversLicense
     label: Date of birth
     comment: Day, month, year on which the licence holder was born. If unknown, approximate.
-    range: xsd:date
+    range: xsd:dateTime
 
   - id: issueDate
     known_as: issue_date
     domain: vdl:Iso18013DriversLicense
     label: Date of Issue
     comment: Date licence document was issued.
-    range: [xsd:dateTime, xsd:date]
-    range_union: true
+    range: xsd:dateTime
 
   - id: expiryDate
     known_as: expiry_date
     domain: vdl:Iso18013DriversLicense
     label: Date of Expiry
     comment: Date licence document expires.
-    range: [xsd:dateTime, xsd:date]
-    range_union: true
+    range: xsd:dateTime
 
   - id: issuingCountry
     known_as: issuing_country
@@ -193,8 +191,8 @@ property:
     known_as: portrait
     domain: vdl:Iso18013DriversLicense
     label: Portrait of mDL Holder
-    comment: A reproduction of the licence holder’s portrait.
-    range: xsd:base64Binary
+    comment: A reproduction of the licence holder’s portrait. The value is a URL, such as a <code>data:</code> URL that encodes the image.
+    range: IRI
 
   - id: portraitCaptureDate
     known_as: portrait_capture_date
@@ -312,8 +310,8 @@ property:
     known_as: signature_usual_mark
     domain: vdl:Iso18013DriversLicense
     label: Signature / usual mark
-    comment: Image of the signature or usual mark of the mDL Holder.
-    range: xsd:base64Binary
+    comment: Image of the signature or usual mark of the mDL Holder. The value is a URL, such as a <code>data:</code> URL that encodes the image.
+    range: IRI
 
   - id: terseStatusListBaseUrl
     label: Terse Status List Base URL
@@ -325,7 +323,7 @@ property:
     label: Terse Status List Index
     domain: vdl:TerseBitstringStatusListEntry
     comment: An index within a status list.
-    range: xsd:unsignedInt
+    range: xsd:integer
 
 # External property definitions, listed because the v2 context maps them
   - id: sch:name
