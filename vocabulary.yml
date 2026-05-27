@@ -121,7 +121,7 @@ property:
     known_as: administrative_number
     domain: vdl:Iso18013DriversLicense
     label: Administrative number
-    comment: An audit control number assigned by the licensing authority
+    comment: An audit control number assigned by the licensing authority.
     range: xsd:string
 
   - id: drivingPrivileges
@@ -135,7 +135,7 @@ property:
     known_as: un_distinguishing_sign
     domain: vdl:Iso18013DriversLicense
     label: UN distinguishing sign
-    comment: Distinguishing sign of the issuing country according to 18013-1 annex F NOTE this field is added for purposes of the UN conventions on driving licences.
+    comment: Distinguishing sign of the issuing country according to ISO/IEC 18013-1 Annex F. This field is added for purposes of the UN conventions on driving licences.
     range: xsd:string
 
   - id: sex
@@ -156,7 +156,7 @@ property:
     known_as: weight
     domain: vdl:Iso18013DriversLicense
     label: Weight (kg)
-    comment: A Licence holder’s weight in kilograms O F3N uint.
+    comment: A Licence holder’s weight in kilograms.
     range: xsd:unsignedInt
 
   - id: eyeColour
@@ -296,14 +296,14 @@ property:
     known_as: family_name_national_character
     domain: vdl:Iso18013DriversLicense
     label: Family name of holder in full UTF-8 character set
-    comment: The family name of the mDL Holder in his/her national characters.
+    comment: The family name of the mDL Holder in their national characters.
     range: xsd:string
 
   - id: givenNameNationalCharacter
     known_as: given_name_national_character
     domain: vdl:Iso18013DriversLicense
     label: Given name of holder in full UTF-8 character set
-    comment: The given name of the mDL Holder in his/her national characters.
+    comment: The given name of the mDL Holder in their national characters.
     range: xsd:string
 
   - id: signatureUsualMark
