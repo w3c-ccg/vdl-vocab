@@ -1,0 +1,68 @@
+%%{
+    init: {
+        "theme" : "neutral",
+        "class": {
+            "hideEmptyMembersBox": true
+        }
+    }
+}%%
+classDiagram
+    class VerifiableCredential {}
+    class CredentialStatus {}
+
+    class Iso18013DriversLicenseCredential {}
+    class OpticalBarcodeCredential {}
+
+    class LicensedDriver {}
+
+    class Iso18013DriversLicense {
+        family_name: xsd:string
+        given_name: xsd:string
+        birth_date: xsd:dateTime
+        issue_date: xsd:dateTime
+        expiry_date: xsd:dateTime
+        issuing_country: xsd:string
+        issuing_authority: xsd:string
+        issuing_jurisdiction: xsd:string
+        document_number: xsd:string
+        administrative_number: xsd:string
+        driving_privileges: rdf:JSON
+        un_distinguishing_sign: xsd:string
+        sex: xsd:unsignedInt
+        height: xsd:unsignedInt
+        weight: xsd:unsignedInt
+        eye_colour: xsd:string
+        hair_colour: xsd:string
+        birth_place: xsd:string
+        nationality: xsd:string
+        resident_address: xsd:string
+        resident_city: xsd:string
+        resident_state: xsd:string
+        resident_postal_code: xsd:string
+        resident_country: xsd:string
+        family_name_national_character: xsd:string
+        given_name_national_character: xsd:string
+        portrait: URL
+        portrait_capture_date: xsd:dateTime
+        signature_usual_mark: URL
+        age_in_years: xsd:unsignedInt
+        age_birth_year: xsd:unsignedInt
+        age_over_18: xsd:boolean
+        age_over_21: xsd:boolean
+        age_over_25: xsd:boolean
+        age_over_62: xsd:boolean
+        age_over_65: xsd:boolean
+    }
+
+    class TerseBitstringStatusListEntry {
+        terseStatusListBaseUrl: URL
+        terseStatusListIndex: xsd:integer
+    }
+
+    Iso18013DriversLicenseCredential --|> VerifiableCredential : rdfs.subClassOf
+    OpticalBarcodeCredential --|> VerifiableCredential : rdfs.subClassOf
+    TerseBitstringStatusListEntry --|> CredentialStatus : rdfs.subClassOf
+
+    Iso18013DriversLicenseCredential --> LicensedDriver : credentialSubject
+    LicensedDriver --> Iso18013DriversLicense : driversLicense
+    VerifiableCredential --> CredentialStatus : credentialStatus
