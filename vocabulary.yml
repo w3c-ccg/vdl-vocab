@@ -24,7 +24,7 @@ prefix:
 
 ontology:
   - property: dc:title
-    value: Verifiable Driver's License Vocabulary
+    value: Verifiable Driver's License Vocabulary v2.0
 
   - property: dc:description
     value: RDFS [[RDF-SCHEMA]] vocabulary for expressing ISO 18013 Mobile Driver's License data as Verifiable Credentials
