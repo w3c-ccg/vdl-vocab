@@ -18,7 +18,7 @@ ontology:
     value: Verifiable Driver's License AAMVA Vocabulary
 
   - property: dc:description
-    value: RDFS [[RDF-SCHEMA]] vocabulary for the data elements defined by the AAMVA mDL Implementation Guidelines
+    value: RDFS [[RDF-SCHEMA]] vocabulary for the data elements defined by Version 1.2 of the AAMVA mDL Implementation Guidelines
 
   - property: rdfs:seeAlso
     value: https://w3id.org/vdl
