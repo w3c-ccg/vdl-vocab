@@ -64,8 +64,8 @@
     <section id="abstract">
       <p>
 This specification describes <b>an experimental vocabulary</b> for expressing
-a Verifiable Driver's License, which is intended to be fully conformant with
-the ISO 18013 Mobile Driver's License data model.
+a Verifiable Driver's License. The vocabulary uses the data element names and
+meanings of the ISO/IEC 18013-5 mobile driver's license (mDL) data model.
       </p>
       <p>
 Alternate versions of the vocabulary definition exist in
@@ -82,9 +82,33 @@ This document is experimental.
       <h2>Introduction</h2>
       <p>
 This specification describes <b>an experimental vocabulary</b> for expressing
-a Verifiable Driver's License, which is intended to be fully conformant with
-the ISO 18013 Mobile Driver's License data model.
+a Verifiable Driver's License. The vocabulary uses the data element names and
+meanings of the ISO/IEC 18013-5 mobile driver's license (mDL) data model.
       </p>
+
+      <section class="informative">
+        <h3>Relationship to ISO/IEC 18013-5</h3>
+
+        <p>
+The core properties use the data element identifiers of the ISO/IEC 18013-5
+<code>org.iso.18013.5.1</code> namespace, such as <code>family_name</code> and
+<code>birth_date</code>. Each property has the same meaning as the ISO data
+element with the same identifier.
+        </p>
+        <p>
+ISO/IEC 18013-5 defines the mdoc format, which handles how mDL data is sent and
+secured. This vocabulary does not replace that format. It expresses the same
+data elements in a W3C verifiable credential, which a verifiable credential
+securing mechanism then protects.
+        </p>
+        <p>
+Some value encodings differ from the mdoc encodings. Dates use
+<code>xsd:dateTime</code> values. The portrait and the signature or usual mark
+use URLs, such as <code>data:</code> URLs. The vocabulary defines age
+attestations only for the ages 18, 21, 25, 62, and 65. It does not define the
+<code>biometric_template_xx</code> data elements.
+        </p>
+      </section>
 
       <section class="informative">
         <h3>Use Cases and Requirements</h3>
@@ -198,9 +222,8 @@ credential. It uses this vocabulary and the AAMVA vocabulary.
 
       <p>
 This vocabulary assumes all terms specified in the base Verifiable Credentials
-[[VC-DATA-MODEL]] context. In addition, the following classes are available for
-specifying information related to ISO18013 data model compatible Driving
-Licenses.
+[[VC-DATA-MODEL]] context. In addition, the following classes and properties
+express ISO/IEC 18013-5 mDL data.
       </p>
 
       <figure id="vocabulary-diagram">
