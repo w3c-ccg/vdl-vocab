@@ -11,6 +11,22 @@ The purpose of this work item is to demonstrate a path to interoperability betwe
 http://w3id.org/vdl/interop-reports 
 https://github.com/digitalbazaar/vdl-vocab
 
+## Building the Specification
+
+The vocabulary terms live in `vocabulary.yml` and `aamva/vocabulary.yml`. The
+[yml2vocab](https://github.com/w3c/yml2vocab) tool combines each file with its
+`template.html` to generate the HTML, Turtle, and JSON-LD versions. The class
+diagram lives in `vocabulary.mmd`. The JSON-LD contexts in `context/` are the
+source of truth for term names, IRIs, and types.
+
+```
+npm install
+npm run build
+```
+
+A GitHub Action lints the vocabularies on pull requests. Another GitHub Action
+builds and publishes them to GitHub Pages on every push to `main`.
+
 ## List Owners
 
 @msporny @tplooker @clehner
