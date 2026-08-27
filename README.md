@@ -1,12 +1,11 @@
 ## Verifiable Driver's License Vocabulary
 
-**DRAFT / EXPERIMENTAL VOCABULARY**
+This specification describes a Linked Data vocabulary for expressing ISO/IEC
+18013-5 mobile driver's license data as W3C verifiable credentials. The
+California DMV uses it in production for the digital driver's license in the
+CA DMV App.
 
-This specification describes a Linked Data vocabulary for asserting
-ISO18013-compatible Driver's Licenses. It is highly experimental and is not
-intended for production use.
-
-The purpose of this work item is to demonstrate a path to interoperability between the ISO-18013-5 Mobile Driver's License data model and the W3C Verifiable Credentials ecosystem. The technologies explored in this work item are experimental and meant to be complementary to ISO-18013-5 (mDL) and not a replacement of the standard. The output of the work item would be a Verifiable Driver's License Vocabulary and an interoperability report between issuers and verifiers for Verifiable Driver's License Credentials using the Verifiable Driver's License Vocabulary. This report is generated on a weekly basis.
+The purpose of this work item is to demonstrate a path to interoperability between the ISO-18013-5 Mobile Driver's License data model and the W3C Verifiable Credentials ecosystem. The technologies explored in this work item are meant to be complementary to ISO-18013-5 (mDL) and not a replacement of the standard. The output of the work item would be a Verifiable Driver's License Vocabulary and an interoperability report between issuers and verifiers for Verifiable Driver's License Credentials using the Verifiable Driver's License Vocabulary. This report is generated on a weekly basis.
 
 http://w3id.org/vdl/interop-reports 
 https://github.com/digitalbazaar/vdl-vocab
