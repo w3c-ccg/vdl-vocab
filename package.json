@@ -2,6 +2,7 @@
   "name": "vdl-vocab",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "description": "Verifiable Driver's License Vocabulary",
   "repository": {
     "type": "git",
@@ -10,8 +11,8 @@
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
     "build": "npm run build:core && npm run build:aamva",
-    "build:core": "yml2vocab -c -v vocabulary.yml -t template.html && mv vocabulary.html index.html",
-    "build:aamva": "yml2vocab -c -v aamva/vocabulary.yml -t aamva/template.html && mv aamva/vocabulary.html aamva/index.html",
+    "build:core": "yml2vocab -c -v vocabulary.yml -t template.html && mv vocabulary.html index.html && node scripts/rewrite-known-as.js index.html core",
+    "build:aamva": "yml2vocab -c -v aamva/vocabulary.yml -t aamva/template.html && mv aamva/vocabulary.html aamva/index.html && node scripts/rewrite-known-as.js aamva/index.html aamva",
     "lint": "yml2vocab -c -v vocabulary.yml -t template.html && yml2vocab -c -v aamva/vocabulary.yml -t aamva/template.html"
   },
   "devDependencies": {
